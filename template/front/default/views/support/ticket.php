@@ -158,22 +158,22 @@
         <span class="ts_hint"><?= $_->l('Статус') ?>: </span>
 
 
-        <? if ($ticket->status == -1) { ?>
+        <?php if ($ticket->status == -1) { ?>
             <span class="label label-success"><?= $_->l('Новый') ?></span>
-        <? } elseif ($ticket->status == 0) { ?>
+        <?php } elseif ($ticket->status == 0) { ?>
             <span class="label label-warning"><?= $_->l('В обработке') ?></span>
-        <? } else { ?>
+        <?php } else { ?>
             <span class="label label-danger"><?= $_->l('Закрыт') ?></span>
-        <? } ?>
+        <?php } ?>
 
         <span class="ts_hint"><?= $_->l('Приоритет') ?>: </span>
-        <? if ($ticket->priority == 0) { ?>
+        <?php if ($ticket->priority == 0) { ?>
             <span class="label label-danger"><?= $_->l('Низкий') ?></span>
-        <? } elseif ($ticket->priority == 1) { ?>
+        <?php } elseif ($ticket->priority == 1) { ?>
             <span class="label label-warning"><?= $_->l('Средний') ?></span>
-        <? } elseif ($ticket->priority == 2) { ?>
+        <?php } elseif ($ticket->priority == 2) { ?>
             <span class="label label-success"><?= $_->l('Высокий') ?></span>
-        <? } ?>
+        <?php } ?>
         <span style="vertical-align: middle; float: right; font-weight: 700;"><?= $ticket->date ?></span>
     </p>
 
@@ -183,10 +183,10 @@
         <p><?= $ticket->message ?></p>
     </div>
     <div>
-        <? foreach ($ticket->files as $file) { ?>
+        <?php foreach ($ticket->files as $file) { ?>
             <span class="glyphicon glyphicon-paperclip"></span>  <a
                 href="<?= $_->link('support/download/file/' . $ticket->id . '/' . $file) ?>"><?= $file ?></a> <br>
-        <? } ?>
+        <?php } ?>
     </div>
     <div class="container">
         <div class="row">
@@ -196,7 +196,7 @@
             <!-- /col-sm-12 -->
         </div>
         <!-- /row -->
-        <? foreach ($answers as $answer) { ?>
+        <?php foreach ($answers as $answer) { ?>
             <div class="row">
                 <div class="col-sm-1">
                     <div class="thumbnail">
@@ -226,11 +226,11 @@
                         <div class="panel-body">
                             <?= $answer->answer ?>
                             <div>
-                                <? foreach ($answer->files as $file) { ?>
+                                <?php foreach ($answer->files as $file) { ?>
                                     <span class="glyphicon glyphicon-paperclip"></span>   <a
                                         href="<?= $_->link('support/download/answer/file/' . $answer->id . '/' . $file) ?>"><?= $file ?></a>
                                     <br>
-                                <? } ?>
+                                <?php } ?>
                             </div>
                         </div>
                         <!-- /panel-body -->
@@ -239,8 +239,8 @@
                 </div>
                 <!-- /col-sm-5 -->
             </div><!-- /container -->
-        <? } ?>
-        <? if ($ticket->status != 1){ ?>
+        <?php } ?>
+        <?php if ($ticket->status != 1){ ?>
             <div class="row">
                 <div class="col-md-12">
                     <div class="well well-sm">
@@ -272,7 +272,7 @@
 
                 </div>
             </div>
-        <? } ?>
+        <?php } ?>
     </div>
 
 </div>

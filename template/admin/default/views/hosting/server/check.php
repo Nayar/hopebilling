@@ -1,4 +1,4 @@
-<? use hosting\HostingAPI; ?>
+<?php use hosting\HostingAPI; ?>
 <style>
     .connection_result {
         text-align: center;
@@ -27,11 +27,11 @@
 </style>
 
 <div style="text-align: center;">
-    <? if ($res == HostingAPI::ANSWER_OK) { ?>
+    <?php if ($res == HostingAPI::ANSWER_OK) { ?>
         <span class="connection_result connection_result_success">Соединение установленно!</span>
-    <? } elseif ($res == HostingAPI::ANSWER_AUTH_ERROR) { ?>
+    <?php } elseif ($res == HostingAPI::ANSWER_AUTH_ERROR) { ?>
         <span class="connection_result connection_result_fail">Ошибка авторизации!</span>
-    <? } else { ?>
+    <?php } else { ?>
         <span class="connection_result connection_result_fail">Сервер не отвечает!</span>
-    <? } ?>
+    <?php } ?>
 </div>

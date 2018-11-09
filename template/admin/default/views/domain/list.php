@@ -46,12 +46,12 @@
             </tr>
             </thead>
             <tbody>
-            <? if (count($domains) == 0) { ?>
+            <?php if (count($domains) == 0) { ?>
                 <tr>
                     <td colspan="11"><?=$_->l('Результаты не найдены.')?></td>
                 </tr>
-            <? } ?>
-            <? foreach ($domains as $domain) { ?>
+            <?php } ?>
+            <?php foreach ($domains as $domain) { ?>
                 <tr data-id="<?= $domain->id ?>">
                     <th style="cursor: move"><span class="glyphicon glyphicon-move"></span></th>
                     <th scope="row"><?= $domain->id ?></th>
@@ -73,7 +73,7 @@
 
                     </td>
                 </tr>
-            <? } ?>
+            <?php } ?>
             </tbody>
         </table>
 

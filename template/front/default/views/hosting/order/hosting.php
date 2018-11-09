@@ -67,7 +67,7 @@
 <section id="plans">
     <div class="container">
         <div class="row">
-            <? $i=1; foreach ($plans as $plan) { if($plan->hidden){continue;} ?>
+            <?php $i=1; foreach ($plans as $plan) { if($plan->hidden){continue;} ?>
             <?if($i === 1){?>
             <div class="row">
                 <?}?>
@@ -84,10 +84,10 @@
                                     <?= $_->l('месяц') ?></strong></p>
                         </div>
                         <ul class="list-group text-center">
-                            <? foreach ($plan->details as $detail) { ?>
+                            <?php foreach ($plan->details as $detail) { ?>
                                 <li class="list-group-item" data-toggle="tooltip" data-placement="top" title="<?= $detail->desc ?>"><i class="fa fa-check"></i><?= $detail->name ?>
                                     : <?= $detail->value ?></li>
-                            <? } ?>
+                            <?php } ?>
 
                         </ul>
                         <div class="panel-footer">
@@ -101,7 +101,7 @@
             </div>
                     <?$i=0;}?>
                 <!-- /item -->
-                <? $i++; } ?>
+                <?php $i++; } ?>
 
 
         </div>

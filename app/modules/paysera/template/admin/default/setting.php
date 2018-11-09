@@ -20,7 +20,7 @@
             <select class="form-control" name="currency">
                 <?foreach ($currencies as $currency){?>
                     <option <?=$pconfig->paysera->currency == $currency->id ? 'selected="selected"' : ''?> value="<?=$currency->id?>"><?=$currency->name?></option>
-                <? }?>
+                <?php }?>
             </select>
         </div>
         <div class="checkbox">

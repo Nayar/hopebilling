@@ -15,13 +15,13 @@
 
                                 <ul class="dropdown-menu" role="menu">
 
-                                    <? foreach ($languages as $l) { ?>
+                                    <?php foreach ($languages as $l) { ?>
                                         <li>
                                             <a href="<?= $_->link($request, 'lang='.$l->id) ?>">
                                                 <img src="<?=$_->link('storage/i18n/flags/'.$l->iso_code.'.png')?>" height="23px"> <?=$l->name?>
                                             </a>
                                         </li>
-                                    <? } ?>
+                                    <?php } ?>
                                 </ul>
                             </li>
                         </ul>

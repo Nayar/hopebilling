@@ -5,7 +5,7 @@
             $('.validate-form').validate({messages: validate_messages});
         })
     </script>
-    <? if (isset($ajax)) { ?>
+    <?php if (isset($ajax)) { ?>
 
     <!-- Modal -->
     <div class="modal fade " id="ajaxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="modal-body">
 
-                    <? } ?>
+                    <?php } ?>
 
                             <form action="<?= $_->link('admin/pages/edit?id_page=' . ($page->id ? $page->id : '')) ?>"
                                   method="POST" class="<?= (isset($ajax) ? 'ajax-form' : '') ?> validate-form">
@@ -49,18 +49,18 @@
 
 
 
-                                <? if (!isset($ajax)) { ?>
+                                <?php if (!isset($ajax)) { ?>
                                     <button type="submit" class="btn btn-success"><?=$_->l('Сохранить')?></button>
-                                <? } else { ?>
+                                <?php } else { ?>
                                     <input type="hidden" name="ajax" value="1">
-                                <? } ?>
+                                <?php } ?>
                             </form>
 
 
 
 
 
-                    <? if (isset($ajax)) { ?>
+                    <?php if (isset($ajax)) { ?>
                 </div>
                 <div class="modal-footer">
 
@@ -70,5 +70,5 @@
             </div>
         </div>
     </div>
-<? } ?>
+<?php } ?>
 </div>

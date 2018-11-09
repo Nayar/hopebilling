@@ -11,10 +11,10 @@
         <option <?=($_->rget('type') == 3 ? 'selected="selected"' : '')?> value="3"><?=$_->l('Установщик')?></option>
         </optgroup>
         <optgroup label="Modules">
-            <? foreach ($modules as $module){ ?>
+            <?php foreach ($modules as $module){ ?>
                 <option <?=($_->rget('type') == 'm'.$module->id.'f' ? 'selected="selected"' : '')?> value="m<?=$module->id?>f"><?=$module->name?> (<?=$_->l('Панель клиента')?>)</option>
                 <option <?=($_->rget('type') == 'm'.$module->id.'a' ? 'selected="selected"' : '')?> value="m<?=$module->id?>a"><?=$module->name?> (<?=$_->l('Панель администратора')?>)</option>
-            <? } ?>
+            <?php } ?>
         </optgroup>
     </select>
 </div>
@@ -50,11 +50,11 @@
     </form>
 
 <form method="post">
-<?  if(count($translates)>0){$i=0; foreach ($translates as $file => $translate) { ?>
+<?php  if(count($translates)>0){$i=0; foreach ($translates as $file => $translate) { ?>
 
     <div><?= $file ?></div>
 
-    <?  foreach ($translate as $from => $to) {
+    <?php  foreach ($translate as $from => $to) {
         ?>
         <div class="row"  style="margin-top: 5px">
             <div class="col-md-5">
@@ -67,7 +67,7 @@
                 <a class="btn btn-danger btn-xs "  onclick="$(this).parent().parent().remove()" ><span class="glyphicon glyphicon-remove-circle"></span></a>
             </div>
         </div>
-        <? $i++;
+        <?php $i++;
     }
     ?>
 

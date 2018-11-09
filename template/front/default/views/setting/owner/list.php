@@ -12,7 +12,7 @@
             <th></th>
         </tr>
 
-        <? foreach ($owners as $owner) { ?>
+        <?php foreach ($owners as $owner) { ?>
             <tr>
                 <td><?= $owner->id ?></td>
                 <td><?= $owner->fio ?></td>
@@ -26,6 +26,6 @@
                     <a href="<?= $_->link('setting/domain-owner/remove?owner_id=' . $owner->id) ?>"
                        class="btn btn-danger btn-xs ajax-action"><span class="glyphicon glyphicon-trash"></span> <?=$_->l('Удалить')?></a></td>
             </tr>
-        <? } ?>
+        <?php } ?>
     </table>
 </div>

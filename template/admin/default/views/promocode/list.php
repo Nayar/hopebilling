@@ -20,11 +20,11 @@
             </tr>
         </thead>
         <tbody>
-        <? if (count($promocodes) == 0) { ?>
+        <?php if (count($promocodes) == 0) { ?>
             <tr>
                 <td colspan="11"><?=$_->l('Результаты не найдены.')?></td>
             </tr>
-        <? } ?>
+        <?php } ?>
         <?foreach ($promocodes as $promocode):?>
             <tr>
                 <td><?=$promocode->name?></td>

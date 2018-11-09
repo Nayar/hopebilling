@@ -6,7 +6,7 @@
 
         })
     </script>
-    <? if (isset($ajax)) { ?>
+    <?php if (isset($ajax)) { ?>
 
     <!-- Modal -->
     <div class="modal fade" id="ajaxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -19,12 +19,12 @@
                 </div>
                 <div class="modal-body">
 
-                    <? } ?>
+                    <?php } ?>
                     <form action="<?= $_->link($request) ?>" <?= (isset($ajax) ? 'class="ajax-form"' : '') ?>
                           method="post">
-                        <? if (isset($ajax)) { ?>
+                        <?php if (isset($ajax)) { ?>
                             <input type="hidden" name="ajax" value="1">
-                        <? } ?>
+                        <?php } ?>
                         <div class="form-group">
                             <label for="name"><?=$_->l('Зона')?></label>
                             <input type="text" class="form-control" name="name" data-validate="custom|ajax" data-validate-send-ajax="<?=$domain->id?>"
@@ -35,10 +35,10 @@
                         <div class="form-group">
                             <label for="registrant_id"><?=$_->l('Регистратор')?></label>
                             <select name="registrant_id" data-validate="required" class="form-control">
-                                <? foreach ($registrars as $registrar) { ?>
+                                <?php foreach ($registrars as $registrar) { ?>
                                     <option <?= $domain->registrant_id == $registrar->id ? 'selected="selected"' : '' ?>
                                         value="<?= $registrar->id ?>"><?= $registrar->name ?></option>
-                                <? } ?>
+                                <?php } ?>
 
                             </select>
                         </div>
@@ -80,14 +80,14 @@
                                    value="<?= $domain->extension_price ?>" min="0">
                         </div>
 
-                        <? if (!isset($ajax)) { ?>
+                        <?php if (!isset($ajax)) { ?>
                             <button type="submit" class="btn btn-success"><span
                                     class="glyphicon glyphicon-floppy-disk"></span> <?=$_->l('Сохранить')?>
-                            </button><? } ?>
+                            </button><?php } ?>
                     </form>
 
 
-                    <? if (isset($ajax)) { ?>
+                    <?php if (isset($ajax)) { ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal"><?=$_->l('Закрыть')?></button>
@@ -98,5 +98,5 @@
             </div>
         </div>
     </div>
-<? } ?>
+<?php } ?>
 </div>

@@ -5,28 +5,28 @@
         <div class="col-md-4">
 
             <section class="login-form">
-                <? if (\System\Tools::rGET('send_code')) { ?>
+                <?php if (\System\Tools::rGET('send_code')) { ?>
                     <div class="alert alert-success alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                         <span class="glyphicon glyphicon-ok"></span>
                         <?=$_->l('На Ваш email отправлено сообщение с инструкцией по восстановлению пароля.')?>
                     </div>
-                <? } else if (\System\Tools::rGET('send')) { ?>
+                <?php } else if (\System\Tools::rGET('send')) { ?>
                     <div class="alert alert-success alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                         <span class="glyphicon glyphicon-ok"></span>
                         <?=$_->l('На Ваш email отправлено сообщение с новым паролем.')?>
                     </div>
-                <? } else if($error == 'login_error'){ ?>
+                <?php } else if($error == 'login_error'){ ?>
                     <div class="alert alert-danger alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                         <span class="glyphicon glyphicon-remove-sign"></span>
                         <?=$_->l('Логин или пароль введен не верно!')?>
                     </div>
-                <? } ?>
+                <?php } ?>
                 <form method="post" action="#" role="login">
                     <img src="<?= $_->path('img/logo.png') ?>" class="img-responsive" alt=""/>
                     <input type="text" name="username" placeholder="<?=$_->l('Логин')?>" required

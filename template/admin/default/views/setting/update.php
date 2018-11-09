@@ -1,4 +1,4 @@
-<? if(isset($info->next)){ ?>
+<?php if(isset($info->next)){ ?>
     <div>
         <div>
             <?=$_->l('Текущая версия:')?> <?= $config->app_version ?> <br>
@@ -18,7 +18,7 @@
         </div>
     <?}?>
 
-    <? if ($config->app_version != $info->next) { ?>
+    <?php if ($config->app_version != $info->next) { ?>
         <br>
         <div>
             <form method="post">
@@ -26,13 +26,13 @@
                 <button <?=!$canUpdate ? 'disabled="disabled"' : ''?> class="btn btn-warning"><span class="glyphicon glyphicon-refresh"></span> <?=$_->l('Обновить')?></button>
             </form>
         </div>
-    <? } ?>
-<? } else { ?>
+    <?php } ?>
+<?php } else { ?>
     <div class="alert alert-warning">
         <span class="glyphicon glyphicon-warning-sign"></span>
         <?=$_->l('Не удалось загрузить информацию. Попробуйте повторить запрос немного позже.')?>
     </div>
-<? } ?>
+<?php } ?>
 
 
 

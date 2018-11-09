@@ -13,12 +13,12 @@
                     <?if(count($fields) == 0){?>
                        <?=$_->l('Нет дополнительной информации')?>
                     <?}?>
-                <? foreach($fields as $field){ ?>
+                <?php foreach($fields as $field){ ?>
                     <?=$field->name?>
                     <div class="well">
                         <?=$field->value?>
                     </div>
-                <? } ?>
+                <?php } ?>
 
                 </div>
                 <div class="modal-footer">

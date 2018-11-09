@@ -31,7 +31,7 @@
 
         </div>
 
-        <? if ($client) { ?>
+        <?php if ($client) { ?>
 
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -66,7 +66,7 @@
                                         &nbsp;<?= $_->l('Домен') ?>
                                     </a>
                                 </li>
-                            <? } ?>
+                            <?php } ?>
                             <?if($config->enable_component_vps){?>
                                 <li <?= ($_->link($request) == $_->link('vps-orders') ? 'class="active"' : '') ?>><a
                                         href="<?= $_->link('vps-orders') ?>"><span class="glyphicon glyphicon-hdd"
@@ -87,7 +87,7 @@
                                     </a>
                                 </li>
 
-                            <? } ?>
+                            <?php } ?>
 
                             <?foreach($service_categories as $category){?>
 
@@ -100,7 +100,7 @@
                                     </a>
                                 </li>
 
-                            <? } ?>
+                            <?php } ?>
 
                         </ul>
                     </li>
@@ -129,7 +129,7 @@
                                         &nbsp;<?= $_->l('Домен') ?>
                                     </a>
                                 </li>
-                            <? } ?>
+                            <?php } ?>
                             <?if($config->enable_component_vps){?>
                                 <li <?= ($_->link($request) == $_->link('vps-orders/new') ? 'class="active"' : '') ?>><a
                                         href="<?= $_->link('vps-orders/new') ?>"><span class="glyphicon glyphicon-hdd"
@@ -149,7 +149,7 @@
                                     </a>
                                 </li>
 
-                            <? } ?>
+                            <?php } ?>
                             <?if($service_categories){?>
                                 <?=$_->css('font-awesome.min.css')?>
                                 <?foreach($service_categories as $category){?>
@@ -163,8 +163,8 @@
                                         </a>
                                     </li>
 
-                                <? } ?>
-                            <? } ?>
+                                <?php } ?>
+                            <?php } ?>
                         </ul>
 
                     </li>
@@ -177,14 +177,14 @@
                                 <span class="caret"></span></a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <? foreach ($currencies as $c) { ?>
+                                <?php foreach ($currencies as $c) { ?>
                                     <li>
                                         <a href="<?= $_->link('currency/set/' . $c->id . '?back=' . $request) ?>"><?= $c->name ?></a>
                                     </li>
-                                <? } ?>
+                                <?php } ?>
                             </ul>
                         </li>
-                    <? } ?>
+                    <?php } ?>
 
 
                 </ul>
@@ -198,22 +198,22 @@
 
                             <ul class="dropdown-menu" role="menu">
 
-                                <? foreach ($languages as $l) { ?>
+                                <?php foreach ($languages as $l) { ?>
                                     <li>
                                         <a href="<?= $_->link($request, 'lang='.$l->id) ?>">
                                             <img src="<?=$_->link('storage/i18n/flags/'.$l->iso_code.'.png')?>" height="23px"> <?=$l->name?>
                                         </a>
                                     </li>
-                                <? } ?>
+                                <?php } ?>
                             </ul>
                         </li>
                     <?}?>
 
-                    <? if (isset($_COOKIE['employee'])) { ?>
+                    <?php if (isset($_COOKIE['employee'])) { ?>
                         <li>
                             <a href="<?= $_->link('/admin') ?>"><span class="glyphicon glyphicon-eye-open"></span></a>
                         </li>
-                    <? } ?>
+                    <?php } ?>
                     <li>
                         <a href="<?= $_->link('support') ?>"><span class="glyphicon glyphicon-question-sign"></span>
                             <span class="hidden-sm hidden-md"> <?= $_->l('Поддержка') ?>
@@ -238,11 +238,11 @@
 
                             <li><a href="<?= $_->link('setting') ?>"> <span
                                         class="glyphicon glyphicon-cog"></span> <?= $_->l('Настройки') ?></a></li>
-                            <? if ($config->refprogram_enable) { ?>
+                            <?php if ($config->refprogram_enable) { ?>
                                 <li><a href="<?= $_->link('partner') ?>"> <span
                                             class="glyphicon glyphicon-briefcase"></span> <?= $_->l('Партнерская программа') ?>
                                     </a></li>
-                            <? } ?>
+                            <?php } ?>
                             <li><a href="<?= $_->link('logout') ?>"> <span
                                         class="glyphicon glyphicon-log-out"></span> <?= $_->l('Выход') ?></a></li>
                         </ul>
@@ -250,7 +250,7 @@
 
                 </ul>
             </div><!--/.nav-collapse -->
-        <? } ?>
+        <?php } ?>
 
 
     </div>

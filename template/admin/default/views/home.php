@@ -1,7 +1,7 @@
 <?= $_->js('chartist.js') ?>
 <?= $_->css('chartist.min.css') ?>
 
-<? if ($update_aviable) { ?>
+<?php if ($update_aviable) { ?>
     <div class="row">
         <div class="col-md-12">
             <div class="alert alert-warning alert-dismissible" role="alert">
@@ -13,9 +13,9 @@
             </div>
         </div>
     </div>
-<? } ?>
+<?php } ?>
 
-<? if ($license_end_days) { ?>
+<?php if ($license_end_days) { ?>
     <div class="row">
         <div class="col-md-12">
             <div class="alert alert-warning alert-dismissible" role="alert">
@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-<? } ?>
+<?php } ?>
 
 <div class="row">
     <div class="col-lg-12">

@@ -44,12 +44,12 @@
             </tr>
             </thead>
             <tbody>
-            <? if (count($properties) == 0) { ?>
+            <?php if (count($properties) == 0) { ?>
                 <tr>
                     <td colspan="5"><?=$_->l('Результаты не найдены.')?></td>
                 </tr>
-            <? } ?>
-            <? foreach ($properties as $property) { ?>
+            <?php } ?>
+            <?php foreach ($properties as $property) { ?>
                 <tr>
                     <th scope="row"><?= $property->id ?></th>
 
@@ -65,7 +65,7 @@
                                 class="glyphicon glyphicon-trash" aria-hidden="true"></span> <?=$_->l('Удалить')?></a>
                     </td>
                 </tr>
-            <? } ?>
+            <?php } ?>
             </tbody>
         </table>
     </div>

@@ -1,4 +1,4 @@
-<? if ($error == 'bill_exist') { ?>
+<?php if ($error == 'bill_exist') { ?>
     <div class="alert alert-danger" role="alert">
 
         <?= $_->l('У Вас есть неоплаченные счета по данному заказу. Вы должны оплатить или отменить их.') ?>
@@ -6,15 +6,15 @@
             <?=$_->l('Нажмите здесь чтобы просмотреть счета по заказу №%bill', array('bill'=> $order->id))?>
         </a>
     </div>
-<? } ?>
+<?php } ?>
 
 <form method="post">
     <div class="form-group">
         <label>Период продления</label>
         <select name="pay_period" class="form-control">
-            <? for ($i = $domain->min_extension_period; $i <= $domain->max_extension_period; $i++) { ?>
+            <?php for ($i = $domain->min_extension_period; $i <= $domain->max_extension_period; $i++) { ?>
                 <option value="<?= $i ?>"><?= $i ?> <?= $_->l('{'.$i.'|год|года|год}') ?> - <?= $currency->displayPrice($domain->extension_price * $i) ?></option>
-            <? } ?>
+            <?php } ?>
 
 
         </select>

@@ -5,7 +5,7 @@
             $('.validate-form').validate({messages: validate_messages});
         })
     </script>
-    <? if (isset($ajax)) { ?>
+    <?php if (isset($ajax)) { ?>
 
     <!-- Modal -->
     <div class="modal fade " id="ajaxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="modal-body">
 
-                    <? } ?>
+                    <?php } ?>
                     <div class="top-tabs">
                         <ul class="nav nav-tabs">
                             <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><?=$_->l('Основные');?></a></li>
@@ -58,9 +58,9 @@
                         <div class="form-group">
                             <label for="username"><?=$_->l('Категория')?></label>
                             <select class="form-control" name="category_id">
-                                <? foreach($categories as $category){ ?>
+                                <?php foreach($categories as $category){ ?>
                                     <option value="<?=$category->id?>" <?=($category->id == $service->category_id ? 'selected="selected"' : '')?>><?=$category->name?></option>
-                                <? } ?>
+                                <?php } ?>
                             </select>
                         </div>
                         <div class="form-group">
@@ -144,7 +144,7 @@
                             <script>
                                 var fields = [];
 
-                                <? foreach($service_fields as $field){?>
+                                <?php foreach($service_fields as $field){?>
 
                                 fields.push( {
                                     id :   '<?=$field->id?>',
@@ -174,7 +174,7 @@
                                     '</tr>'
                                 );
 
-                                <? } ?>
+                                <?php } ?>
                                 $('input[name=fields]').val(JSON.stringify(fields));
                                 console.log(fields);
 
@@ -254,7 +254,7 @@
                     </div>
     </form>
 
-                    <? if (isset($ajax)) { ?>
+                    <?php if (isset($ajax)) { ?>
                 </div>
                 <div class="modal-footer">
 
@@ -274,5 +274,5 @@
             </div>
         </div>
     </div>
-<? } ?>
+<?php } ?>
 </div>

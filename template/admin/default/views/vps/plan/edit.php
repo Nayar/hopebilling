@@ -226,10 +226,10 @@
                     <label class="control-label" for="name"><?=$_->l('Доступные для выбора сервера')?></label>
 
                     <select id="available_servers" name="available_servers[]" multiple class="input-xlarge form-control"  data-validate="required">
-                        <? foreach ($servers as $server) { ?>
+                        <?php foreach ($servers as $server) { ?>
                             <option <?= (in_array($server->id, explode('|', $plan->available_servers)) ? 'selected="selected"' : '') ?>
                                data-panel="<?= $server->type ?>" value="<?= $server->id ?>"><?= $server->name ?></option>
-                        <? } ?>
+                        <?php } ?>
                     </select>
 
                     <script>
@@ -356,9 +356,9 @@
                     <label class="control-label" for="images"><?=$_->l('Доступные образы')?></label>
                     <div class="controls">
                         <select id="images" name="images[]" class="form-control" multiple="multiple">
-                            <? foreach ($images as $image) { ?>
+                            <?php foreach ($images as $image) { ?>
                                 <option value="<?=$image?>" <?= (in_array($image, explode('|', $plan->images)) ? 'selected' : '') ?>><?=$image?></option>
-                            <? }?>
+                            <?php }?>
                         </select>
                     </div>
                 </div>
@@ -367,17 +367,17 @@
                     <label class="control-label" for="images"><?=$_->l('Рецепт установки')?></label>
                     <div class="controls">
                         <select id="recipe" name="recipe" class="form-control">
-                            <? foreach ($recipes as $recipe) { ?>
+                            <?php foreach ($recipes as $recipe) { ?>
                                 <option value=""><?=$_->l('Не использовать')?></option>
                                 <option value="<?=$recipe?>" <?= ($recipe== $plan->recipe ? 'selected' : '') ?>><?=$recipe?></option>
-                            <? }?>
+                            <?php }?>
                         </select>
                     </div>
                 </div>
 
             </div>
             <div role="tabpanel" class="tab-pane" id="options">
-                <? if (isset($details)) { ?>
+                <?php if (isset($details)) { ?>
 
                     <?= $_->js('jquery-ui.min.js') ?>
                     <?= $_->js('dragtable.js') ?>
@@ -412,14 +412,14 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <? foreach ($params as $param) { ?>
+                            <?php foreach ($params as $param) { ?>
                                 <tr data-id="<?= $param->id ?>">
                                     <td style="cursor: move"><span class="glyphicon glyphicon-move"></span></td>
                                     <td scope="row"><?= $param->name ?></td>
                                     <td><input type="hidden" name="params_ids[]" value="<?=$param->id?>"><input type="text" name="param_values[]" value="<?=$param->value?>" class="form-control"/></td>
                                     <td><span style="cursor:pointer;" class="glyphicon glyphicon-trash rm"></span></td>
                                 </tr>
-                            <? } ?>
+                            <?php } ?>
 
 
                             </tbody>
@@ -434,7 +434,7 @@
 
                     </div>
 
-                <? } ?>
+                <?php } ?>
             </div>
             <div class="form-group">
                 <button class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> <?=$_->l('Сохранить')?></button>

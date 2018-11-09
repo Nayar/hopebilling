@@ -1,5 +1,5 @@
 <div class="loaded-block ajax-block">
-    <? if (isset($ajax)) { ?>
+    <?php if (isset($ajax)) { ?>
 
     <!-- Modal -->
     <div class="modal fade " id="ajaxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -12,19 +12,19 @@
                 </div>
                 <div class="modal-body">
 
-                    <? } ?>
+                    <?php } ?>
 
-                    <? foreach ($messages as $message) { ?>
-                        <? if ($message['type'] == 'success' && $message['name'] == 'property_save') { ?>
+                    <?php foreach ($messages as $message) { ?>
+                        <?php if ($message['type'] == 'success' && $message['name'] == 'property_save') { ?>
                             <div class="alert alert-success" role="alert">
                                 <?=$_->l('Свойство добавленно!')?>
                             </div>
-                        <? } else if ($message['name'] == 'property_isset') { ?>
+                        <?php } else if ($message['name'] == 'property_isset') { ?>
                             <div class="alert alert-danger" role="alert">
                                 <?=$_->l('Свойство существует!')?>
                             </div>
-                        <? } ?>
-                    <? } ?>
+                        <?php } ?>
+                    <?php } ?>
 
                     <form
                         action="<?= $_->link(($property->id ? 'admin/plan-property/edit/' . $property->id . '/' . $plan->id : 'admin/plan-property/add/' . $plan->id)) ?>"
@@ -35,10 +35,10 @@
 
                             <label for="username"><?=$_->l('Выберите параметр')?></label>
                             <select name="id_param" class="form-control">
-                    <? foreach ($params as $param) { ?>
+                    <?php foreach ($params as $param) { ?>
                         <option
                             value="<?= $param->id ?>" <?= ($property->param_id == $param->id ? 'selected="selected"' : '') ?> ><?= $param->name ?></option>
-                    <? } ?>
+                    <?php } ?>
                             </select>
         </div>
 
@@ -49,14 +49,14 @@
         </div>
 
 
-                        <? if (!isset($ajax)) { ?>
+                        <?php if (!isset($ajax)) { ?>
 
-                        <? } else { ?>
+                        <?php } else { ?>
                             <input type="hidden" name="ajax" value="1">
-                        <? } ?>
+                        <?php } ?>
                     </form>
 
-                    <? if (isset($ajax)) { ?>
+                    <?php if (isset($ajax)) { ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal"><?=$_->l('Закрыть')?></button>
@@ -115,7 +115,7 @@
 
         })
     </script>
-<? } ?>
+<?php } ?>
 
 
 </div>

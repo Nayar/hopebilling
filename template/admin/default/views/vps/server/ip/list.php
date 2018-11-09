@@ -43,47 +43,47 @@
         </tr>
         </thead>
         <tbody>
-        <? if (count($ips) == 0) { ?>
+        <?php if (count($ips) == 0) { ?>
             <tr>
                 <td colspan="5"><?=$_->l('Результаты не найдены.')?></td>
             </tr>
-        <? } ?>
-        <? foreach ($ips as $ip) { ?>
+        <?php } ?>
+        <?php foreach ($ips as $ip) { ?>
             <tr <?=($ip->used == 1) ? 'class="danger"' : ''?>>
                 <th scope="row"><?= $ip->id ?></th>
                 <td>
-                    <? if ($ip->type == 0) { ?>
+                    <?php if ($ip->type == 0) { ?>
                         VLAN
-                    <? } ?>
+                    <?php } ?>
 
-                    <? if ($ip->type == 1) { ?>
+                    <?php if ($ip->type == 1) { ?>
                         Static IPv4
-                    <? } ?>
+                    <?php } ?>
 
-                    <? if ($ip->type == 2) { ?>
+                    <?php if ($ip->type == 2) { ?>
                         NAT Static IPv4
-                    <? } ?>
-                    <? if ($ip->type == 3) { ?>
+                    <?php } ?>
+                    <?php if ($ip->type == 3) { ?>
                         Private Static IPv4
-                    <? } ?>
-                    <? if ($ip->type == 4) { ?>
+                    <?php } ?>
+                    <?php if ($ip->type == 4) { ?>
                         Public Static IPv4
-                    <? } ?>
+                    <?php } ?>
                 </td>
                 <td>
-                    <? if ($ip->type == 0) { ?>
+                    <?php if ($ip->type == 0) { ?>
                         <?= $ip->vlan ?>
-                    <? } else { ?>
+                    <?php } else { ?>
                         ---
-                    <? } ?>
+                    <?php } ?>
 
                 </td>
                 <td>
-                    <? if ($ip->type == 0) { ?>
+                    <?php if ($ip->type == 0) { ?>
                         ---
-                    <? } else { ?>
+                    <?php } else { ?>
                         <?= $ip->ip ?>
-                    <? } ?>
+                    <?php } ?>
                 </td>
 
                 <td>
@@ -99,10 +99,10 @@
                         class="glyphicon glyphicon-trash" aria-hidden="true"></span><?=$_->l('Удалить')?></a>
                     <?} else {?>
                     <span class="label label-danger"> <?=$_->l('IP-адрес используется')?> </span>
-                    <? } ?>
+                    <?php } ?>
                 </td>
             </tr>
-        <? } ?>
+        <?php } ?>
         </tbody>
     </table>
 </div>

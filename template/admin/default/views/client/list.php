@@ -74,12 +74,12 @@
             </tr>
             </thead>
             <tbody>
-            <? if (count($clients) == 0) { ?>
+            <?php if (count($clients) == 0) { ?>
                 <tr>
                     <td colspan="11"><?=$_->l('Результаты не найдены.')?></td>
                 </tr>
-            <? } ?>
-            <? foreach ($clients as $client) { ?>
+            <?php } ?>
+            <?php foreach ($clients as $client) { ?>
                 <tr>
                     <th scope="row"><?= $client->id ?></th>
                     <td><?= $client->username ?></td>
@@ -110,7 +110,7 @@
                                 class="glyphicon glyphicon-log-in" aria-hidden="true"></span><?=$_->l('Войти')?></a>
                     </td>
                 </tr>
-            <? } ?>
+            <?php } ?>
             </tbody>
         </table>
 

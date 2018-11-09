@@ -25,10 +25,10 @@
                 <div>
                     <select class="filter" name="plan_id">
                         <option value=""> ---</option>
-                        <? foreach ($plans as $plan) { ?>
+                        <?php foreach ($plans as $plan) { ?>
                             <option <?= (isset($filter['plan_id']) && $filter['plan_id'] == $plan->id ? 'selected="selected"' : '') ?>
                                 value="<?= $plan->id ?>"><?= $plan->name ?></option>
-                        <? } ?>
+                        <?php } ?>
                     </select>
 
                 </div>
@@ -55,12 +55,12 @@
         </tr>
         </thead>
         <tbody>
-        <? if (count($orders) == 0) { ?>
+        <?php if (count($orders) == 0) { ?>
             <tr class="text-center">
                 <td colspan="11"><?= $_->l('Результаты не найдены.') ?></td>
             </tr>
-        <? } ?>
-        <? foreach ($orders as $order) { ?>
+        <?php } ?>
+        <?php foreach ($orders as $order) { ?>
             <?
             $datetime1 = new DateTime();
             $datetime2 = new DateTime($order->paid_to);
@@ -86,11 +86,11 @@
                 <td><?= $order->server_name ?></td>
 
                 <td class="text-center">
-                    <? if ($order->active) { ?>
+                    <?php if ($order->active) { ?>
                         <span class="label label-success"><?= $_->l('Активный') ?></span>
-                    <? } else { ?>
+                    <?php } else { ?>
                         <span class="label label-danger"><?= $_->l('Отключен') ?></span>
-                    <? } ?>
+                    <?php } ?>
                 </td>
 
 
@@ -102,10 +102,10 @@
                                 class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu">
-                            <? if ($order->active) { ?>
+                            <?php if ($order->active) { ?>
                             <li><a href="<?= $_->link('hosting-orders/open-server-panel?id_order=' . $order->id . '') ?>" target="_blank"><span
                                         class="glyphicon glyphicon-list-alt"></span>&nbsp;<?= $_->l('Панель управления') ?></a></li>
-                            <? } ?>
+                            <?php } ?>
                             <li><a href="<?= $_->link('hosting-order/prolong?id_order=' . $order->id . '') ?>"><span
                                         class="glyphicon glyphicon-shopping-cart"></span>&nbsp;<?= $_->l('Продлить') ?>
                                 </a></li>
@@ -114,17 +114,17 @@
                             <li><a href="<?= $_->link('bills/order/change-plan/' . $order->id) ?>"><span
                                         class="glyphicon glyphicon-refresh"></span>&nbsp;<?= $_->l('Сменить тариф') ?>
                                 </a></li>
-                            <? if (!$order->active) { ?>
+                            <?php if (!$order->active) { ?>
                                 <li><a href="<?= $_->link('hosting-order/remove?id_order=' . $order->id) ?>" class="ajax-action" data-confirm="<?=$_->l('Вы уверены что хотите удалить заказ ?')?>"><span
                                             class="glyphicon glyphicon-remove-circle"></span>&nbsp;<?= $_->l('Удалить заказ') ?>
                                     </a>
                                 </li>
-                            <? } ?>
+                            <?php } ?>
                         </ul>
                     </div>
                 </td>
             </tr>
-        <? } ?>
+        <?php } ?>
         </tbody>
     </table>
     <?= $pagination ?>

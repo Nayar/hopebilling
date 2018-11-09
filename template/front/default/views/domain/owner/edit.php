@@ -6,7 +6,7 @@
             $('form').validate({messages: validate_messages});
         })
     </script>
-    <? if (isset($ajax)) { ?>
+    <?php if (isset($ajax)) { ?>
 
     <!-- Modal -->
     <div class="modal fade" id="ajaxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -19,24 +19,24 @@
                 </div>
                 <div class="modal-body">
 
-                    <? } ?>
+                    <?php } ?>
                     <form action="<?= $_->link($request) ?>"
                           method="post" class="ajax-form">
-                        <? if (isset($ajax)) { ?>
+                        <?php if (isset($ajax)) { ?>
                             <input type="hidden" name="ajax" value="1">
-                        <? } ?>
-                        <? if (isset($owner->id)) { ?>
+                        <?php } ?>
+                        <?php if (isset($owner->id)) { ?>
                             <input type="hidden" name="id" value="<?= $owner->id ?>">
-                        <? } ?>
+                        <?php } ?>
 
-                        <? if ($disable_edit) { ?>
+                        <?php if ($disable_edit) { ?>
                             <div class="alert alert-danger alert-dismissible" role="alert">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                                         aria-hidden="true">&times;</span></button>
                                 <span class="glyphicon glyphicon-alert"></span>
                                 <?=$_->l('Этот владелец используется! Редактирование запрещено!')?>
                             </div>
-                        <? } ?>
+                        <?php } ?>
                         <div class="row">
                             <div class="form-group col-lg-12">
                                 <label for="fio"><?=$_->l('Ф.И.О')?></label>
@@ -810,15 +810,15 @@
                             });
                         </script>
 
-                        <? if (!isset($ajax)) { ?>
+                        <?php if (!isset($ajax)) { ?>
                             <button type="submit" class="btn btn-success"><span
                                     class="glyphicon glyphicon-floppy-disk"></span> <?=$_->l('Сохранить')?>
                             </button>
-                        <? } ?>
+                        <?php } ?>
                     </form>
 
 
-                    <? if (isset($ajax)) { ?>
+                    <?php if (isset($ajax)) { ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal"><?=$_->l('Закрыть')?></button>
@@ -830,5 +830,5 @@
         </div>
     </div>
 
-<? } ?>
+<?php } ?>
 </div>

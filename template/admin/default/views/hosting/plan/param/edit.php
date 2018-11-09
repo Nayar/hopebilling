@@ -1,5 +1,5 @@
 <div class="loaded-block">
-    <? if (isset($ajax)) { ?>
+    <?php if (isset($ajax)) { ?>
 <?= $_->JS('validator.js') ?>
 
     <!-- Modal -->
@@ -12,7 +12,7 @@
                     <h4 class="modal-title" id="myModalLabel"><?= $_->l('Параметр') ?></h4>
                 </div>
                 <div class="modal-body">
-                    <? } ?>
+                    <?php } ?>
                     <form <?= (isset($ajax) ? 'class="ajax-form"' : '') ?>
                         action='<?= $_->link('admin/plan/param/' . ($param->id ? $param->id : 'add')) ?>'
                         method="POST">
@@ -28,11 +28,11 @@
                                    class="form-control">
                         </div>
 
-                        <? if (!isset($ajax)) { ?>
+                        <?php if (!isset($ajax)) { ?>
                             <button type="submit" class="btn btn-success"><?= $_->l('Сохранить') ?></button>
-                        <? } else { ?>
+                        <?php } else { ?>
                             <input type="hidden" name="ajax" value="1">
-                        <? } ?>
+                        <?php } ?>
 
                     </form>
                     <script>
@@ -40,7 +40,7 @@
                             $('form').validate({messages: validate_messages});
                         });
                     </script>
-                    <? if (isset($ajax)) { ?>
+                    <?php if (isset($ajax)) { ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal"><?= $_->l('Закрыть') ?></button>
@@ -51,5 +51,5 @@
             </div>
         </div>
     </div>
-<? } ?>
+<?php } ?>
 </div>

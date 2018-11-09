@@ -18,48 +18,48 @@
         </tr>
         </thead>
         <tbody>
-        <? if (count($tickets) == 0) { ?>
+        <?php if (count($tickets) == 0) { ?>
             <tr>
                 <td colspan="11"><?= $_->l('Результаты не найдены.') ?></td>
             </tr>
-        <? } ?>
-        <? foreach ($tickets as $ticket) { ?>
+        <?php } ?>
+        <?php foreach ($tickets as $ticket) { ?>
             <tr>
                 <th scope="row"><?= $ticket->id ?></th>
                 <td><?= $ticket->subject ?></td>
                 <td>
-                    <? if ($ticket->status == -1) { ?>
+                    <?php if ($ticket->status == -1) { ?>
                         <span class="label label-success"><?= $_->l('Новый') ?></span>
-                    <? } elseif ($ticket->status == 0) { ?>
+                    <?php } elseif ($ticket->status == 0) { ?>
                         <span class="label label-warning"><?= $_->l('В обработке') ?></span>
-                    <? } elseif ($ticket->status == 1) { ?>
+                    <?php } elseif ($ticket->status == 1) { ?>
                         <span class="label label-danger"><?= $_->l('Закрыт') ?></span>
-                    <? } ?>
+                    <?php } ?>
                     &nbsp;&nbsp;&nbsp;
                     <?= $ticket->count_new ? '<span class="label label-info">' . $ticket->count_new . '</span>' : '' ?>
                 </td>
                 <td>
-                    <? if ($ticket->priority == 0) { ?>
+                    <?php if ($ticket->priority == 0) { ?>
                         <span class="label label-danger"><?= $_->l('Низкий') ?></span>
-                    <? } elseif ($ticket->priority == 1) { ?>
+                    <?php } elseif ($ticket->priority == 1) { ?>
                         <span class="label label-warning"><?= $_->l('Средний') ?></span>
-                    <? } elseif ($ticket->priority == 2) { ?>
+                    <?php } elseif ($ticket->priority == 2) { ?>
                         <span class="label label-success"><?= $_->l('Высокий') ?></span>
-                    <? } ?>
+                    <?php } ?>
                 </td>
                 <td><?= $ticket->date ?></td>
 
                 <td class="text-center">
                     <a href="<?= $_->link('support/ticket/show?ticket_id=' . $ticket->id) ?>" class="btn btn-info btn-xs"><span
                             class="glyphicon glyphicon-eye-open"></span> <?= $_->l('Просмотр тикета') ?></a>
-                    <? if ($ticket->status != 1) { ?>
+                    <?php if ($ticket->status != 1) { ?>
                         <a href="<?= $_->link('support/ticket/close?ticket_id=' . $ticket->id) ?>"
                            class="btn btn-danger btn-xs ajax-action"><span
                                 class="glyphicon glyphicon-remove-sign "></span> <?= $_->l('Закрыть тикет') ?></a>
-                    <? } ?>
+                    <?php } ?>
                 </td>
             </tr>
-        <? } ?>
+        <?php } ?>
         </tbody>
     </table>
 </div>

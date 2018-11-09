@@ -26,12 +26,12 @@
         </tr>
         </thead>
         <tbody>
-        <? if (count($servers) == 0) { ?>
+        <?php if (count($servers) == 0) { ?>
             <tr>
                 <td colspan="5"><?=$_->l('Результаты не найдены.')?></td>
             </tr>
-        <? } ?>
-        <? foreach ($servers as $server) { ?>
+        <?php } ?>
+        <?php foreach ($servers as $server) { ?>
             <tr <?=$server->hidden ? 'class="row_hidden"' : ''?> data-id="<?= $server->id ?>">
                 <th scope="row"><?= $server->id ?></th>
                 <td><?= $server->name ?></td>
@@ -59,7 +59,7 @@
                     <?} ?>
                 </td>
             </tr>
-        <? } ?>
+        <?php } ?>
         </tbody>
     </table>
 </div>

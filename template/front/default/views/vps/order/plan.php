@@ -63,26 +63,26 @@
     <div class="form-group">
         <label for="exampleInputPassword1"><?= $_->l('Выберите сервер') ?></label>
         <select name="server" class="form-control">
-            <? foreach ($servers as $server) { ?>
+            <?php foreach ($servers as $server) { ?>
                 <?if ($server->hidden) continue;?>
                 <option value="<?= $server->id ?>" data-panel="<?=$server->type?>"><?= $server->name ?></option>
-            <? } ?>
+            <?php } ?>
         </select>
     </div>
     <div class="form-group">
         <label for="image"><?= $_->l('Выберите образ') ?></label>
         <select name="image" class="form-control">
-            <? foreach ($plan->getImages() as $image) { ?>
+            <?php foreach ($plan->getImages() as $image) { ?>
                 <option value="<?= $image ?>"><?= $image ?></option>
-            <? } ?>
+            <?php } ?>
         </select>
     </div>
     <div class="form-group">
         <label><?= $_->l('Период оплаты') ?></label>
         <select name="pay_period" class="form-control">
-            <? if($plan->test_days > 0){ ?>
+            <?php if($plan->test_days > 0){ ?>
                 <option value="test"><?=$plan->test_days?> <?= $_->l('{'.$plan->test_days.'|день|дня|дней}') ?> - <?= $currency->displayPrice(0) ?> <?=$_->l('(тестовый период)')?></option>
-            <? } ?>
+            <?php } ?>
             <option value="1">1 <?= $_->l('месяц') ?>
                 - <?= $currency->displayPrice($plan->price) ?>      </option>
             <option value="2">2 <?= $_->l('месяца') ?>

@@ -136,17 +136,17 @@
 if (isset($messages)) {
     foreach ($messages as $message) {
         ?>
-        <? if ($message == 'ok') { ?>
+        <?php if ($message == 'ok') { ?>
 
             <div class="alert alert-success alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
                 <span class="glyphicon glyphicon-floppy-saved"></span> <?= $_->l('Изменения были успешно сохранены.') ?>
             </div>
-        <? } ?>
-    <? }
+        <?php } ?>
+    <?php }
 } ?>
-<? if ($page == 'safety') { ?>
+<?php if ($page == 'safety') { ?>
     <form action="" method="post" class="form">
         <table class="settings_table">
             <tbody>
@@ -209,13 +209,13 @@ if (isset($messages)) {
                 <td class=""><b><?= $_->l('Браузер') ?></b></td>
                 <td class=""><b><?= $_->l('Дата') ?></b></td>
             </tr>
-            <? foreach ($sessions as $session) { ?>
+            <?php foreach ($sessions as $session) { ?>
                 <tr>
                     <td><?= $session->os ?> (<?= $session->ip ?>)</td>
                     <td><?= $session->browser ?> </td>
                     <td><?= $session->date ?></td>
                 </tr>
-            <? } ?>
+            <?php } ?>
 
             <tr>
                 <td colspan="3" style="text-align:center"><input type="submit" name="save"
@@ -228,7 +228,7 @@ if (isset($messages)) {
             </tbody>
         </table>
     </form>
-<? }
+<?php }
 elseif ($page == 'notifications') { ?>
     <?= $_->JS('bootstrap-switch.min.js') ?>
     <?= $_->CSS('bootstrap-switch.css') ?>
@@ -405,7 +405,7 @@ elseif ($page == 'notifications') { ?>
 
     </form>
 
-<? }
+<?php }
 elseif ($page == 'main') { ?>
     <form action="" method="post" class="form" accept-charset="UTF-8" enctype="multipart/form-data">
         <table class="settings_table">
@@ -463,8 +463,8 @@ elseif ($page == 'main') { ?>
                         <td><?=$_->l('Синхронизация аккаунтов')?>:</td>
                         <td>
                             <div>
-                                <? $networks_providers = implode(',', array_slice($socialAuthInfo->networks, 0, 4));?>
-                                <? $networks_hidden = implode(',', array_slice($socialAuthInfo->networks, 4));?>
+                                <?php $networks_providers = implode(',', array_slice($socialAuthInfo->networks, 0, 4));?>
+                                <?php $networks_hidden = implode(',', array_slice($socialAuthInfo->networks, 4));?>
                                 <script src="//ulogin.ru/js/ulogin.js"></script>
                                 <div id="uLogin" data-ulogin="display=panel;theme=classic;fields=first_name,last_name;lang=<?=$lang->iso_code?>;providers=<?=$networks_providers?>;hidden=<?=$networks_hidden?>;redirect_uri=<?=$_->link('/social/auth')?>;mobilebuttons=0;"></div>
                             </div>
@@ -851,7 +851,7 @@ elseif ($page == 'main') { ?>
             </tr>
 
 
-            <? $i = 1;
+            <?php $i = 1;
             foreach ($docs as $doc) { ?>
                 <td><?= $_->l('Документ') . ' ' . $i++ ?></td>
                 <td>
@@ -865,7 +865,7 @@ elseif ($page == 'main') { ?>
                     </div>
                 </td>
                 </tr>
-            <? } ?>
+            <?php } ?>
             <tr>
                 <td colspan="2" style="text-align:center">
                     <button class="btn btn-info btn-xs add-doc">
@@ -976,6 +976,6 @@ elseif ($page == 'main') { ?>
         })
     </script>
 
-<? } else if ($page == 'domain-owners') { ?>
+<?php } else if ($page == 'domain-owners') { ?>
 
-<? } ?>
+<?php } ?>

@@ -1,5 +1,5 @@
 <div class="ajax-block">
-<? if ($error == 'bill_exist') { ?>
+<?php if ($error == 'bill_exist') { ?>
     <div class="alert alert-danger" role="alert">
 
         <?= $_->l('У Вас есть неоплаченные счета по данному заказу. Вы должны оплатить или отменить их.') ?>
@@ -7,7 +7,7 @@
         <?=$_->l('Нажмите здесь чтобы просмотреть счета по заказу №%bill', array('bill'=> $order->id))?>
         </a>
     </div>
-<? } ?>
+<?php } ?>
 <form method="post">
     <div class="form-group">
         <label><?= $_->l('Период оплаты') ?></label>

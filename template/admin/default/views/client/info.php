@@ -58,22 +58,22 @@
                                         </tbody>
                                     </table>
                                 <?}?>
-                                <? if ($client->getDocs()) { ?>
+                                <?php if ($client->getDocs()) { ?>
                                     <table class="table table-user-information">
                                         <tbody>
                                         <tr>
                                             <td><?= $_->l('Документы') ?></td>
                                             <td>
-                                                <? foreach ($client->getDocs() as $doc) { ?>
+                                                <?php foreach ($client->getDocs() as $doc) { ?>
                                                     <a target="_blank"
                                                        href="<?= $_->link('/storage/docs/' . $client->id . '/' . $doc) ?>"><?= $doc ?></a>
                                                     <br/>
-                                                <? } ?>
+                                                <?php } ?>
                                             </td>
                                         </tr>
                                         </tbody>
                                     </table>
-                                <? } ?>
+                                <?php } ?>
 
 
 
@@ -89,7 +89,7 @@
                        class="btn btn-default "><span
                             class="glyphicon glyphicon-log-in" aria-hidden="true"></span><?=$_->l('Войти')?></a>
 
-                    <? /*  <a href="<?=$_->link('admin/client/edit-info/'.$info->id)?>" class="btn btn-default btn-primary ajax-modal">Редактировать</a>*/ ?>
+                    <?php /*  <a href="<?=$_->link('admin/client/edit-info/'.$info->id)?>" class="btn btn-default btn-primary ajax-modal">Редактировать</a>*/ ?>
                 </div>
             </div>
         </div>

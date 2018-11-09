@@ -7,7 +7,7 @@
         $('form.code-confirmation').validate({messages: validate_messages});
     })
 </script>
-<? if ($config->enabled_sms_confirm) { ?>
+<?php if ($config->enabled_sms_confirm) { ?>
 <script>
     $(function () {
         $('.form').on('submit', function (e) {
@@ -52,7 +52,7 @@
         })
     })
 </script>
-<? } ?>
+<?php } ?>
 <div id="check-mobile" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
@@ -112,13 +112,13 @@
 
                                 <ul class="dropdown-menu" role="menu">
 
-                                    <? foreach ($languages as $l) { ?>
+                                    <?php foreach ($languages as $l) { ?>
                                         <li>
                                             <a href="<?= $_->link($request, 'lang='.$l->id) ?>">
                                                 <img src="<?=$_->link('storage/i18n/flags/'.$l->iso_code.'.png')?>" height="23px"> <?=$l->name?>
                                             </a>
                                         </li>
-                                    <? } ?>
+                                    <?php } ?>
                                 </ul>
                             </li>
                         </ul>
@@ -126,13 +126,13 @@
                     <h3 class="panel-title text-center"><?= $_->l('Регистрация') ?></h3>
                 </div>
                 <div class="panel-body">
-                    <? if ($error == 'no_pass') { ?>
+                    <?php if ($error == 'no_pass') { ?>
                         <div class="alert alert-danger"
                              role="alert"><?= $_->l('Пользователь не существует или пароль неверный!') ?>
                         </div>
-                    <? } else if ($error == 'no_valid') { ?>
+                    <?php } else if ($error == 'no_valid') { ?>
                         <div class="alert alert-danger" role="alert"><?= $_->l('Заполните все поля!') ?></div>
-                    <? } ?>
+                    <?php } ?>
 
                     <form id="reg-form" class="form" method="POST">
                         <div class="row">
@@ -194,12 +194,12 @@
 
                         </div>
 
-                        <? if ($config->enabled_captcha) { ?>
+                        <?php if ($config->enabled_captcha) { ?>
                             <div class="form-group">
                                 <script src='https://www.google.com/recaptcha/api.js'></script>
                                 <div class="g-recaptcha" data-sitekey="<?= $config->recaptcha_sitekey ?>"></div>
                             </div>
-                        <? } ?>
+                        <?php } ?>
 
 
                         <div class="form-group">
@@ -217,7 +217,7 @@
                             <div class="social-reg">
                                 <?=$_->l('Регистрация через соц.сети')?>
 
-                                <? if(is_array($socialAuthInfo->networks)) { ?>
+                                <?php if(is_array($socialAuthInfo->networks)) { ?>
                                    <?
                                     if(count($socialAuthInfo->networks)>4){
                                     $networks_providers = implode(',', array_slice($socialAuthInfo->networks, 0, 4));

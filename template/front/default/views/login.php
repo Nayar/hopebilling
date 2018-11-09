@@ -1,7 +1,7 @@
 <?= $_->css('login.css') ?>
 <?= $_->JS('validator.js') ?>
 <div class="container">
-    <? if($config->enabled_sms_login){ ?>
+    <?php if($config->enabled_sms_login){ ?>
     <div id="check-mobile" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
@@ -49,43 +49,43 @@
         <div class="col-md-4">
 
             <section class="login-form">
-                <? if (\System\Tools::rGET('reg')) { ?>
+                <?php if (\System\Tools::rGET('reg')) { ?>
                     <div class="alert alert-success alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                         <span class="glyphicon glyphicon-ok"></span>
                         <?=$_->l('Благодарим за регистрацию в системе, на вашу почту отправлены данные для входа')?>
                     </div>
-                <? } ?>
-                <? if (\System\Tools::rGET('send_code')) { ?>
+                <?php } ?>
+                <?php if (\System\Tools::rGET('send_code')) { ?>
                     <div class="alert alert-success alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                         <span class="glyphicon glyphicon-ok"></span>
                         <?=$_->l('На Ваш email отправлено сообщение с инструкцией по восстановлению пароля.')?>
                     </div>
-                <? } else if (\System\Tools::rGET('send')) { ?>
+                <?php } else if (\System\Tools::rGET('send')) { ?>
                     <div class="alert alert-success alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                         <span class="glyphicon glyphicon-ok"></span>
                         <?=$_->l('На Ваш email отправлено сообщение с новым паролем.')?>
                     </div>
-                <? } else if($error == 'login_error'){ ?>
+                <?php } else if($error == 'login_error'){ ?>
                     <div class="alert alert-danger alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                         <span class="glyphicon glyphicon-remove-sign"></span>
                         <?=$_->l('Логин или пароль введен не верно!')?>
                     </div>
-                <? } else if($error == 'phone_error'){ ?>
+                <?php } else if($error == 'phone_error'){ ?>
                     <div class="alert alert-danger alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                         <span class="glyphicon glyphicon-remove-sign"></span>
                         <?=$_->l('Код из СМС введен не верно!')?>
                     </div>
-                <? } ?>
+                <?php } ?>
                 <form id="login-form" method="post" action="<?=$_->link('login')?><?=isset($back) ? '?back=' . $back : ''?>" role="login">
 
                     <?if($config->enable_lang_switcher_for_client  && count($languages) > 1){?>
@@ -98,13 +98,13 @@
 
                                 <ul class="dropdown-menu" role="menu">
 
-                                    <? foreach ($languages as $l) { ?>
+                                    <?php foreach ($languages as $l) { ?>
                                         <li>
                                             <a href="<?= $_->link($request, 'lang='.$l->id) ?>">
                                                 <img src="<?=$_->link('storage/i18n/flags/'.$l->iso_code.'.png')?>" height="23px"> <?=$l->name?>
                                             </a>
                                         </li>
-                                    <? } ?>
+                                    <?php } ?>
                                 </ul>
                             </li>
                         </ul>
@@ -121,15 +121,15 @@
                         <div class="social-reg">        
                             <?=$_->l('Регистрация через соц.сети')?>
                             <?if(is_array($socialAuthInfo->networks)){?>
-                            <? $networks_providers = implode(',', array_slice($socialAuthInfo->networks, 0, 4));?>
-                            <? $networks_hidden = implode(',', array_slice($socialAuthInfo->networks, 4));?>
-                            <? } ?>
+                            <?php $networks_providers = implode(',', array_slice($socialAuthInfo->networks, 0, 4));?>
+                            <?php $networks_hidden = implode(',', array_slice($socialAuthInfo->networks, 4));?>
+                            <?php } ?>
                             <script src="//ulogin.ru/js/ulogin.js"></script>
                             <div id="uLogin" data-ulogin="display=panel;theme=classic;fields=first_name,last_name,phone,email,nickname;verified_email=1;lang=<?=$lang->iso_code?>;providers=<?=$networks_providers?>;hidden=<?=$networks_hidden?>;redirect_uri=<?=$_->link('/social/auth' . $_->rGet('back'))?>;mobilebuttons=0;"></div>
                             <br>
                         </div>
                     <?}?>
-                    <? if($config->enabled_sms_login){ ?>
+                    <?php if($config->enabled_sms_login){ ?>
                         <input type="hidden" name="code" value="">
                         <input type="hidden" name="id_conf" value="">
 
@@ -155,7 +155,7 @@
                                 return false;
                             })
                         </script>
-                    <? } ?>
+                    <?php } ?>
 
                     <div>
                         <a href="<?= $_->link('reminder') ?><?=isset($back) ? '?back=' . $back : ''?>"><?=$_->l('Забыли пароль ?')?></a>

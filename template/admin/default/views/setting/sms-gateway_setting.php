@@ -1,4 +1,4 @@
-<? if ($system == 'turbosms') { ?>
+<?php if ($system == 'turbosms') { ?>
     <form method="post">
         <fieldset>
             <div class="form-group">
@@ -24,7 +24,7 @@
             <button type="submit" class="btn btn-primary"><?=$_->l('Сохранить')?></button>
         </fieldset>
     </form>
-<? } elseif ($system == 'smsc') { ?>
+<?php } elseif ($system == 'smsc') { ?>
     <form method="post">
         <fieldset>
             <div class="form-group">
@@ -50,4 +50,4 @@
             <button type="submit" class="btn btn-primary"><?=$_->l('Сохранить')?></button>
         </fieldset>
     </form>
-<? } ?>
+<?php } ?>

@@ -1,8 +1,8 @@
 <div class="ajax-block">
     <?= $_->JS('momentjs/moment.min.js') ?>
-    <? if ($lang->iso_code != 'en') { ?>
+    <?php if ($lang->iso_code != 'en') { ?>
         <?= $_->JS('momentjs/locale/' . $lang->iso_code . '.js') ?>
-    <? } ?>
+    <?php } ?>
     <?= $_->JS('daterangepicker.js') ?>
     <?= $_->CSS('daterangepicker.css') ?>
 
@@ -141,12 +141,12 @@
         </thead>
         <tbody>
 
-        <? if (count($orders) == 0) { ?>
+        <?php if (count($orders) == 0) { ?>
             <tr class="text-center">
                 <td colspan="11"><?=$_->l('Результаты не найдены.')?></td>
             </tr>
-        <? } ?>
-        <? foreach ($orders as $order) { ?>
+        <?php } ?>
+        <?php foreach ($orders as $order) { ?>
             <tr>
                 <th scope="row"><?= $order->id ?></th>
 
@@ -195,7 +195,7 @@
                     </div>
                 </td>
             </tr>
-        <? } ?>
+        <?php } ?>
         </tbody>
     </table>
 

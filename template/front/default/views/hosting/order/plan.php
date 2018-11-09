@@ -6,10 +6,10 @@
 <?= $_->CSS('messenger/messenger.css'); ?>
 <?= $_->CSS('messenger/messenger-theme-future.css'); ?>
 
-<? if ($error == 'connection_error') { ?>
+<?php if ($error == 'connection_error') { ?>
     <div class="alert alert-danger"
          role="alert"><?= $_->l('Ошибка соединения с сервером! Обратитесь в службу поддержки') ?></div>
-<? } ?>
+<?php } ?>
 
 <style type="text/css">
 
@@ -113,9 +113,9 @@
     <div class="form-group">
         <label for="server"><?= $_->l('Выберите сервер') ?></label>
         <select name="server" class="form-control">
-            <? foreach ($servers as $server) { ?>
+            <?php foreach ($servers as $server) { ?>
                 <option value="<?= $server->id ?>" data-panel="<?=$server->panel?>"><?= $server->name ?></option>
-            <? } ?>
+            <?php } ?>
         </select>
     </div>
     <script>
@@ -148,9 +148,9 @@
     <div class="form-group">
         <label><?= $_->l('Период оплаты') ?></label>
         <select name="pay_period" class="form-control">
-            <? if($plan->test_days > 0){ ?>
+            <?php if($plan->test_days > 0){ ?>
                 <option value="test"><?=$plan->test_days?> <?= $_->l('{%period|день|дня|дней}', array('period' => $plan->test_days)) ?> - <?= $currency->displayPrice(0) ?> <?=$_->l('(тестовый период)')?></option>
-            <? } ?>
+            <?php } ?>
             <?if(!$prices){?>
             <option value="1">1 <?= $_->l('месяц') ?>
                 - <?= $currency->displayPrice($plan->price) ?>      </option>
@@ -168,9 +168,9 @@
             <?}?>
         </select>
     </div>
-    <? if ($error == 'user_exist') { ?>
+    <?php if ($error == 'user_exist') { ?>
         <div class="alert alert-danger" role="alert"><?= $_->l('Пользователь с таким логином уже существует!') ?></div>
-    <? } ?>
+    <?php } ?>
     <div class="form-group <?= ($error == 'user_exist' ? 'has-error' : '') ?>">
         <label><?= $_->l('Ваш логин для входа в панель управления хостингом') ?></label>
         <input name="login" data-validate="hosting_username" class="form-control" value="<?= $_->p('login') ?>">

@@ -75,10 +75,10 @@
                   data-original-title="<?=$_->l('Сервер из которого будет получен список пакетов хостинг панели.')?>"></span>
                     <select name="server_id" class="input-xlarge form-control"  data-validate="required">
                         <option value=""> ---</option>
-                        <? foreach ($servers as $server) { ?>
+                        <?php foreach ($servers as $server) { ?>
                             <option <?= ($plan->server_id == $server->id ? 'selected' : '') ?>
                                 value="<?= $server->id ?>"><?= $server->name ?></option>
-                        <? } ?>
+                        <?php } ?>
                     </select>
                 </div>
 
@@ -135,10 +135,10 @@
             <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title=""
                   data-original-title="<?=$_->l('Название плана в хостинг панеле.')?>"></span>
                     <select name="panel_name" class="input-xlarge form-control"  data-validate="required">
-                        <? foreach ($panel_plans as $name) { ?>
+                        <?php foreach ($panel_plans as $name) { ?>
                             <option
                                 value="<?= $name ?>" <?= ($plan->panel_name == $name ? 'selected' : '') ?>><?= $name ?></option>
-                        <? } ?>
+                        <?php } ?>
                     </select>
                 </div>
                 <?/*
@@ -151,20 +151,20 @@
                     })
                 </script>
 */?>
-                <? if (isset($error['message']) && $error['message'] == 'no_plan') { ?>
+                <?php if (isset($error['message']) && $error['message'] == 'no_plan') { ?>
                     <div class="alert alert-danger" role="alert" style="margin-top: 15px;">
                         <?=$_->l('Сервер %server не содержит плана %plan. Создайте данный план на всех серверах, которые вы выбираете!', array('server' => $error['server']->name, 'plan' => $error['plan'] ))?>
                     </div>
-                <? } ?>
+                <?php } ?>
                 <div class="form-group">
                     <label class="control-label" for="name"><?=$_->l('Доступные для выбора сервера')?></label>
             <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title=""
                   data-original-title="<?=$_->l('На всех выбраных серверах должен быть создан тариф с именем выбранным в поле &quot;План панели&quot; ')?>"></span>
                     <select name="aviable_servers[]" multiple class="input-xlarge form-control"  data-validate="required">
-                        <? foreach ($servers as $server) { ?>
+                        <?php foreach ($servers as $server) { ?>
                             <option <?= (in_array($server->id, explode('|', $plan->aviable_servers)) ? 'selected' : '') ?>
                                 value="<?= $server->id ?>"><?= $server->name ?></option>
-                        <? } ?>
+                        <?php } ?>
                     </select>
                 </div>
 
@@ -190,14 +190,14 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <? foreach ($details as $detail) { ?>
+                            <?php foreach ($details as $detail) { ?>
                                 <tr data-id="<?= $detail->id ?>">
                                     <th style="cursor: move"><span class="glyphicon glyphicon-move"></span></th>
                                     <th scope="row"><?= $detail->name ?></th>
                                     <td><input type="hidden" name="params_ids[]" value="<?=$detail->id?>"><input name="param_values[]" class="form-control" value="<?= $detail->value ?>"></td>
                                     <td><span style="cursor:pointer;" class="glyphicon glyphicon-trash rm"></span></td>
                                 </tr>
-                            <? } ?>
+                            <?php } ?>
 
 
                             </tbody>

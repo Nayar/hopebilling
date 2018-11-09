@@ -54,12 +54,12 @@
             </tr>
             </thead>
             <tbody>
-            <? if (count($plans) == 0) { ?>
+            <?php if (count($plans) == 0) { ?>
                 <tr>
                     <td colspan="11"><?=$_->l('Результаты не найдены.')?></td>
                 </tr>
-            <? } ?>
-            <? foreach ($plans as $plan) { ?>
+            <?php } ?>
+            <?php foreach ($plans as $plan) { ?>
                 <tr data-id="<?= $plan->id ?>" <?=$plan->hidden ? 'class="row_hidden"' : ''?>>
                     <th style="cursor: move"><span class="glyphicon glyphicon-move"></span></th>
                     <th scope="row"><?= $plan->id ?></th>
@@ -82,7 +82,7 @@
                     </td>
 
                 </tr>
-            <? } ?>
+            <?php } ?>
             </tbody>
         </table>
     </div>

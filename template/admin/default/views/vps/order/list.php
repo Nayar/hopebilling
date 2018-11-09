@@ -39,12 +39,12 @@
         </thead>
         <tbody>
 
-        <? if (count($orders) == 0) { ?>
+        <?php if (count($orders) == 0) { ?>
             <tr>
                 <td colspan="11"><?=$_->l('Результаты не найдены.')?></td>
             </tr>
-        <? } ?>
-        <? foreach ($orders as $order) { ?>
+        <?php } ?>
+        <?php foreach ($orders as $order) { ?>
             <tr>
                 <th scope="row"><?= $order->id ?></th>
                 <td><a href="<?= $_->link('admin/client/info/' . $order->client_id) ?>"
@@ -58,11 +58,11 @@
                 <td><?= $order->server_name ?></td>
 
                 <td>
-                    <? if ($order->active) { ?>
+                    <?php if ($order->active) { ?>
                         <span class="label label-success"><?= $_->l('Активный') ?></span>
-                    <? } else { ?>
+                    <?php } else { ?>
                         <span class="label label-danger"><?= $_->l('Отключен') ?></span>
-                    <? } ?>
+                    <?php } ?>
                 </td>
                 <td><!-- Single button -->
                     <div class="btn-group">
@@ -81,7 +81,7 @@
                     </div>
                 </td>
             </tr>
-        <? } ?>
+        <?php } ?>
         </tbody>
     </table>
 

@@ -40,7 +40,7 @@
         </tr>
         </thead>
         <tbody>
-        <? foreach ($currencies as $currency) { ?>
+        <?php foreach ($currencies as $currency) { ?>
             <tr>
                 <td><?= $currency->id ?></td>
                 <td><?= $currency->name ?></td>
@@ -48,14 +48,14 @@
                 <td>
                     <a href="<?= $_->link('admin/settings/currency/' . $currency->id) ?>" class="btn btn-default"><span
                             class="glyphicon glyphicon-ok" aria-hidden="true"></span><?=$_->l('Изменить')?></a>
-                    <? if ($currency->id != $config->currency_default) { ?>
+                    <?php if ($currency->id != $config->currency_default) { ?>
                     <a href="<?= $_->link('admin/settings/currency/remove/' . $currency->id) ?>"
                        class="btn btn-danger ajax-action"><span class="glyphicon glyphicon-trash"
                                                                 aria-hidden="true"></span><?=$_->l('Удалить')?></a>
-                    <? } ?>
+                    <?php } ?>
                 </td>
             </tr>
-        <? } ?>
+        <?php } ?>
         </tbody>
     </table>
 </div>

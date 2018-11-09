@@ -7,17 +7,17 @@
 </script>
 <form class="main-form" action='' method="POST" enctype="multipart/form-data">
 
-    <? if (!empty($errors)) { ?>
-        <? foreach ($errors as $error) { ?>
-            <? if ($error == 'file_greater5') { ?>
+    <?php if (!empty($errors)) { ?>
+        <?php foreach ($errors as $error) { ?>
+            <?php if ($error == 'file_greater5') { ?>
                 <div class="alert alert-danger alert-dismissible" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <span class="glyphicon glyphicon-warning-sign"></span>
                     <?=$_->l('Файл вложения не может превишать 5 МБ.')?>
                 </div>
-            <? }  ?>
-        <? } ?>
-    <? } ?>
+            <?php }  ?>
+        <?php } ?>
+    <?php } ?>
 
 <div class="form-group">
     <label class="control-label" for="subject"><?= $_->l('Тема') ?></label>

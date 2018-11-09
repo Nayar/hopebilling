@@ -61,12 +61,12 @@
             </tr>
             </thead>
             <tbody>
-            <? if (count($services) == 0) { ?>
+            <?php if (count($services) == 0) { ?>
                 <tr>
                     <td colspan="11"><?=$_->l('Результаты не найдены.')?></td>
                 </tr>
-            <? } ?>
-            <? foreach ($services as $service) { ?>
+            <?php } ?>
+            <?php foreach ($services as $service) { ?>
                 <tr data-id="<?= $service->id ?>">
 
                     <th scope="row"><?= $service->id ?></th>
@@ -84,7 +84,7 @@
                     </td>
 
                 </tr>
-            <? } ?>
+            <?php } ?>
             </tbody>
         </table>
     </div>

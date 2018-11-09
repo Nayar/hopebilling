@@ -21,10 +21,10 @@
         <label for="client_id"><?=$_->l('Клиент')?></label>
         <select name="client_id" data-validate="required" class="form-control">
             <option value=""> ---</option>
-            <? foreach ($clients as $client) { ?>
+            <?php foreach ($clients as $client) { ?>
                 <option
                     value="<?= $client->id ?>" <?= (($order->client_id == $client->id) || \System\Tools::rPOST('user_id') == $client->id ? 'selected' : '') ?> ><?= $client->name ?></option>
-            <? } ?>
+            <?php } ?>
         </select>
         <script type="text/javascript">
             function formatRepo(repo) {

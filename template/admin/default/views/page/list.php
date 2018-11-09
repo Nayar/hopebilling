@@ -44,12 +44,12 @@
             </tr>
             </thead>
             <tbody>
-            <? if (count($pages) == 0) { ?>
+            <?php if (count($pages) == 0) { ?>
                 <tr>
                     <td colspan="11"><?=$_->l('Результаты не найдены.')?></td>
                 </tr>
-            <? } ?>
-            <? foreach ($pages as $page) { ?>
+            <?php } ?>
+            <?php foreach ($pages as $page) { ?>
                 <tr data-id="<?= $page->id ?>">
 
                     <th scope="row"><?= $page->id ?></th>
@@ -67,7 +67,7 @@
                     </td>
 
                 </tr>
-            <? } ?>
+            <?php } ?>
             </tbody>
         </table>
     </div>

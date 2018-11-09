@@ -65,12 +65,12 @@
             </tr>
             </thead>
             <tbody>
-            <? if (count($employees) == 0) { ?>
+            <?php if (count($employees) == 0) { ?>
                 <tr>
                     <td colspan="11"><?=$_->l('Результаты не найдены.')?></td>
                 </tr>
-            <? } ?>
-            <? foreach ($employees as $client) { ?>
+            <?php } ?>
+            <?php foreach ($employees as $client) { ?>
                 <tr>
                     <th scope="row"><?= $client->id ?></th>
                     <td><?= $client->username ?></td>
@@ -88,7 +88,7 @@
                                 aria-hidden="true"></span><?=$_->l('Удалить')?></a>
                     </td>
                 </tr>
-            <? } ?>
+            <?php } ?>
             </tbody>
         </table>
 

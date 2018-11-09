@@ -47,12 +47,12 @@
         </tr>
         </thead>
         <tbody>
-        <? if (count($orders) == 0) { ?>
+        <?php if (count($orders) == 0) { ?>
             <tr class="text-center">
                 <td colspan="11"><?= $_->l('Результаты не найдены.') ?></td>
             </tr>
-        <? } ?>
-        <? foreach ($orders as $order) { ?>
+        <?php } ?>
+        <?php foreach ($orders as $order) { ?>
             <?
             $datetime1 = new DateTime();
             $datetime2 = new DateTime($order->date_end);
@@ -84,19 +84,19 @@
                 <td><?= $order->date_end ?></td>
 
                 <td class="text-center">
-                    <? if ($order->status == 1) { ?>
+                    <?php if ($order->status == 1) { ?>
                         <span class="label label-success"><?= $_->l('Активный') ?></span>
-                    <? } else if ($order->status == 2) { ?>
+                    <?php } else if ($order->status == 2) { ?>
                         <span class="label label-danger" data-toggle="tooltip" data-placement="top"
                             data-original-title="Оплата получена, но в процессе обработки произошли ошибки"
                             ><?= $_->l('Ошибка обработки') ?></span>
-                    <? } else if ($order->status == -1) { ?>
+                    <?php } else if ($order->status == -1) { ?>
                         <span class="label label-danger"><?= $_->l('Отменен') ?></span>
-                    <? } else if ($order->status == 0) { ?>
+                    <?php } else if ($order->status == 0) { ?>
                         <span class="label label-warning"><?= $_->l('Ожидает оплату') ?></span>
-                    <? } else if ($order->status == 3) { ?>
+                    <?php } else if ($order->status == 3) { ?>
                         <span class="label label-warning"><?= $_->l('В обработке') ?></span>
-                    <? } ?>
+                    <?php } ?>
                 </td>
 
 
@@ -111,7 +111,7 @@
                             <li><a href="<?= $_->link('bills?id_domain_order=' . $order->id) ?>"><span
                                         class="glyphicon glyphicon-list-alt"></span>&nbsp;<?= $_->l('Счета') ?></a></li>
 
-                            <? if ($order->status == 0) { ?>
+                            <?php if ($order->status == 0) { ?>
                                 <?if(!$order->owner_id){?>
                                 <li><a href="<?= $_->link('domain-orders/order/' . $order->id) ?>"
                                        class=""><span
@@ -123,24 +123,24 @@
                                        class="ajax-action"><span
                                             class="glyphicon glyphicon-remove-circle"></span>&nbsp;<?= $_->l('Отменить заказ') ?>
                                     </a></li>
-                            <? } ?>
-                            <? if ($order->status == 1 || $order->status == 2) { ?>
+                            <?php } ?>
+                            <?php if ($order->status == 1 || $order->status == 2) { ?>
                                 <li><a href="<?= $_->link('domain-orders/ns-change?id_order=' . $order->id) ?>"
                                        class="ajax-modal"><span
                                             class="glyphicon glyphicon-retweet"></span>&nbsp;<?= $_->l('Изменить NS сервера') ?>
                                     </a></li>
-                            <? } ?>
-                            <? if ($order->status == 1) { ?>
+                            <?php } ?>
+                            <?php if ($order->status == 1) { ?>
                                 <li><a href="<?= $_->link('domain-orders/prolong?id_order=' . $order->id) ?>"
                                         ><span
                                             class="glyphicon glyphicon-play"></span>&nbsp;<?= $_->l('Продлить') ?></a>
                                 </li>
-                            <? } ?>
+                            <?php } ?>
                         </ul>
                     </div>
                 </td>
             </tr>
-        <? } ?>
+        <?php } ?>
         </tbody>
     </table>
     <?= $pagination ?>

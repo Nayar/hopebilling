@@ -6,7 +6,7 @@
 
         })
     </script>
-    <? if (isset($ajax)) { ?>
+    <?php if (isset($ajax)) { ?>
 
     <!-- Modal -->
     <div class="modal fade" id="ajaxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -19,12 +19,12 @@
                 </div>
                 <div class="modal-body">
 
-                    <? } ?>
+                    <?php } ?>
                     <form action="<?= $_->link($request) ?>" <?= (isset($ajax) ? 'class="ajax-form"' : '') ?>
                           method="post">
-                        <? if (isset($ajax)) { ?>
+                        <?php if (isset($ajax)) { ?>
                             <input type="hidden" name="ajax" value="1">
-                        <? } ?>
+                        <?php } ?>
                         <div class="form-group">
                             <label for="exampleInputEmail1"><?=$_->l('Имя пользователя')?></label>
                             <input type="text" class="form-control" name="username" data-validate="username|ajax"
@@ -47,12 +47,12 @@
                                    value="<?= $user->email ?>">
                         </div>
 
-                        <? if (!isset($ajax)) { ?>
-                            <button type="submit" class="btn btn-default"><?=$_->l('Сохранить')?></button><? } ?>
+                        <?php if (!isset($ajax)) { ?>
+                            <button type="submit" class="btn btn-default"><?=$_->l('Сохранить')?></button><?php } ?>
                     </form>
 
 
-                    <? if (isset($ajax)) { ?>
+                    <?php if (isset($ajax)) { ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal"><?=$_->l('Закрыть')?></button>
@@ -61,5 +61,5 @@
             </div>
         </div>
     </div>
-<? } ?>
+<?php } ?>
 </div>

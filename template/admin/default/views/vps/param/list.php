@@ -41,12 +41,12 @@
             </tr>
             </thead>
             <tbody>
-            <? if (count($properties) == 0) { ?>
+            <?php if (count($properties) == 0) { ?>
                 <tr>
                     <td colspan="5"><?=$_->l('Результаты не найдены.')?></td>
                 </tr>
-            <? } ?>
-            <? foreach ($properties as $property) { ?>
+            <?php } ?>
+            <?php foreach ($properties as $property) { ?>
                 <tr>
                     <th scope="row"><?= $property->id ?></th>
 
@@ -59,7 +59,7 @@
                            class="btn btn-xs btn-danger ajax-action"><?=$_->l('Удалить')?></a>
                     </td>
                 </tr>
-            <? } ?>
+            <?php } ?>
             </tbody>
         </table>
     </div>

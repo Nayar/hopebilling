@@ -50,25 +50,25 @@
     <div class="form-group">
         <label for="admin_template"><?=$_->l('Шаблон панели администратора')?></label>
         <select name="admin_template" class="form-control">
-            <? foreach ($admin_templates as $admin_template) { ?>
+            <?php foreach ($admin_templates as $admin_template) { ?>
                <option <?=$config->admin_template == $admin_template ? 'selected="selected"' : ''?>><?=$admin_template?></option>
-            <? }?>
+            <?php }?>
         </select>
     </div>
     <div class="form-group">
         <label for="front_template"><?=$_->l('Шаблон панели клиента')?></label>
         <select name="front_template" class="form-control">
-            <? foreach ($front_templates as $front_template) { ?>
+            <?php foreach ($front_templates as $front_template) { ?>
                 <option <?=$config->front_template == $front_template ? 'selected="selected"' : ''?>><?=$front_template?></option>
-            <? }?>
+            <?php }?>
         </select>
     </div>
     <div class="form-group">
         <label for="email_template"><?= $_->l('Шаблон EMAIL уведомлений') ?></label>
         <select name="email_template" class="form-control">
-            <? foreach ($email_templates as $email_template) { ?>
+            <?php foreach ($email_templates as $email_template) { ?>
                 <option <?= $config->email_template == $email_template ? 'selected="selected"' : '' ?>><?= $email_template ?></option>
-            <? } ?>
+            <?php } ?>
         </select>
     </div>
 
@@ -246,7 +246,7 @@
             <label for="hosting_rules"><?= $_->l('Договор') ?></label>
             <select name="hosting_rules" class="form-control">
                 <option value="0"><?= $_->l('Не использовать') ?></option>
-                <? foreach ($pages as $page) {?>
+                <?php foreach ($pages as $page) {?>
                     <option <?=$config->hosting_rules == $page->id ? 'selected="selected"' : ''?> value="<?=$page->id?>"><?=$page->name?></option>
                 <?}?>
 

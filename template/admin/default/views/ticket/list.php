@@ -18,12 +18,12 @@
         </tr>
         </thead>
         <tbody>
-        <? if (count($tickets) == 0) { ?>
+        <?php if (count($tickets) == 0) { ?>
             <tr>
                 <td colspan="11"><?=$_->l('Результаты не найдены')?>.</td>
             </tr>
-        <? } ?>
-        <? foreach ($tickets as $ticket) { ?>
+        <?php } ?>
+        <?php foreach ($tickets as $ticket) { ?>
             <tr>
                 <th scope="row"><?= $ticket->id ?></th>
                 <td><?= $ticket->user ?></td>
@@ -36,17 +36,17 @@
                 <td class="text-center">
                     <a href="<?= $_->link('admin/ticket/' . $ticket->id) ?>" class="btn btn-info btn-xs"><span
                             class="glyphicon glyphicon-eye-open"></span> <?=$_->l('Просмотр')?> </a>
-                    <? if ($ticket->status != 1) { ?>
+                    <?php if ($ticket->status != 1) { ?>
                         <a href="<?= $_->link('admin/ticket/close/' . $ticket->id) ?>"
                            class="btn btn-danger btn-xs ajax-action"><span
                                 class="glyphicon glyphicon-remove-sign"></span> <?=$_->l('Закрыть')?> </a>
-                    <? } ?>
+                    <?php } ?>
                     <a href="<?= $_->link('admin/ticket/remove/' . $ticket->id) ?>"
                        class="btn btn-danger btn-xs ajax-action"><span
                             class="glyphicon glyphicon-remove-sign"></span> <?=$_->l('Удалить')?> </a>
                 </td>
             </tr>
-        <? } ?>
+        <?php } ?>
         </tbody>
     </table>
     <?= $pagination ?>

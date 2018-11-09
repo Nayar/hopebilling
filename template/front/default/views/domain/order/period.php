@@ -8,44 +8,44 @@
 </script>
 
 <div class="ajax-block">
-<? use domain\DomainAPI; ?>
+<?php use domain\DomainAPI; ?>
 <h2><?=$_->l('Выбор периода предоставления услуг')?></h2>
 
 <div class="row">
     <div class="col-md-12">
-        <? if (isset($errors)) { ?>
+        <?php if (isset($errors)) { ?>
 
-            <? foreach ($errors as $id_order => $error) { ?>
-                <? if ($error->type == 'owner_reg') { ?>
+            <?php foreach ($errors as $id_order => $error) { ?>
+                <?php if ($error->type == 'owner_reg') { ?>
                 <div class="alert alert-danger alert-dismissible" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
                     <span class="glyphicon glyphicon-alert"></span>
                     <?=$_->l('Возникла ошибка с регистрацией владельца для домена %domain', array('domain' => $error->order->domain))?>
-                    <? if ($error->code == DomainAPI::ANSWER_CONTACT_CREATE_ERROR_BDATE) { ?>
+                    <?php if ($error->code == DomainAPI::ANSWER_CONTACT_CREATE_ERROR_BDATE) { ?>
                         <p><?= $_->l('Дата рождения владельца указана не верно!') ?></p>
-                    <? } ?>
-                    <? if ($error->code == DomainAPI::ANSWER_CONTACT_CREATE_ERROR_PASSPORT) { ?>
+                    <?php } ?>
+                    <?php if ($error->code == DomainAPI::ANSWER_CONTACT_CREATE_ERROR_PASSPORT) { ?>
                         <p><?= $_->l('Поля "Серия и номер паспорта", "Дата выдачи" или "Кем выдан паспорт" не указаны или указаны не верно!') ?></p>
-                    <? } ?>
+                    <?php } ?>
                 </div>
-                <? } elseif ($error->type == 'no_selected_owner') { ?>
+                <?php } elseif ($error->type == 'no_selected_owner') { ?>
                     <div class="alert alert-danger alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                         <span class="glyphicon glyphicon-alert"></span>
                         <?=$_->l('Не выбран владелец!')?>
                     </div>
-                <? } elseif ($error->type == 'no_selected_ns') { ?>
+                <?php } elseif ($error->type == 'no_selected_ns') { ?>
                     <div class="alert alert-danger alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                         <span class="glyphicon glyphicon-alert"></span>
                         <?=$_->l('Нужно указать как минимум 2 NS сервера!')?>
                     </div>
-                <? } ?>
-            <? } ?>
-        <? } ?>
+                <?php } ?>
+            <?php } ?>
+        <?php } ?>
 
         <form id="domains_period" method="post">
             <table class="table">
@@ -57,24 +57,24 @@
                     <th width="40%"><?=$_->l('NS сервера')?></th>
                 </tr>
                 </thead>
-                <? foreach ($orders as $order) { ?>
+                <?php foreach ($orders as $order) { ?>
                     <tr>
                         <td><input type="hidden" name="order[]" value="<?= $order->id ?>"><?= $order->domain ?></td>
                         <td>
                             <select name="period[<?= $order->id ?>]">
-                                <? for ($i = $order->data->min_period; $i <= $order->data->max_period; $i++) { ?>
+                                <?php for ($i = $order->data->min_period; $i <= $order->data->max_period; $i++) { ?>
                                     <option value="<?= $i ?>"><?= $i ?> год</option>
-                                <? } ?>
+                                <?php } ?>
 
                             </select>
                         </td>
                         <td>
                             <select class="owner_id" id="owner_id<?= $order->id ?>" name="owner_id[<?= $order->id ?>]" style="width:50%;">
                                 <option value=""><?=$_->l('Не выбрано')?></option>
-                                <? foreach ($owners as $owner) { ?>
+                                <?php foreach ($owners as $owner) { ?>
                                     <option
                                         value="<?= $owner->id ?>" <?= isset($_->rpost('owner_id')[$order->id]) && $_->rpost('owner_id')[$order->id] == $owner->id ? 'selected="selected"' : '' ?>><?= $owner->fio ?> (ID: <?=$owner->id?>)</option>
-                                <? } ?>
+                                <?php } ?>
                             </select>
                             &nbsp;&nbsp;
                             <a class="btn btn-xs btn-success ajax-modal" href="<?=$_->link('domain-owner/add')?>" data-order="<?= $order->id ?>">
@@ -111,7 +111,7 @@
                             </div>
                         </td>
                     </tr>
-                <? } ?>
+                <?php } ?>
             </table>
 
 

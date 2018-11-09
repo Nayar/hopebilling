@@ -19,10 +19,10 @@
                 <div>
                     <select name="category_id" class="filter" data-type="equal">
                         <option value=""> ---</option>
-                        <? foreach ($categories as $category) { ?>
+                        <?php foreach ($categories as $category) { ?>
                             <option
                                 value="<?= $category->id ?>" <?= (isset($filter['category_id']) && $filter['category_id'] == $category->id) ? 'selected="selected"' : '' ?>><?= $category->name ?></option>
-                        <? } ?>
+                        <?php } ?>
                     </select>
 
                 </div>
@@ -51,12 +51,12 @@
         </thead>
         <tbody>
 
-        <? if (count($orders) == 0) { ?>
+        <?php if (count($orders) == 0) { ?>
             <tr>
                 <td colspan="11"><?=$_->l('Результаты не найдены.')?></td>
             </tr>
-        <? } ?>
-        <? foreach ($orders as $order) { ?>
+        <?php } ?>
+        <?php foreach ($orders as $order) { ?>
             <tr>
                 <th scope="row"><?= $order->id ?></th>
                 <th scope="row"><?= $order->category ?></th>
@@ -106,7 +106,7 @@
                     </div>
                 </td>
             </tr>
-        <? } ?>
+        <?php } ?>
         </tbody>
     </table>
 

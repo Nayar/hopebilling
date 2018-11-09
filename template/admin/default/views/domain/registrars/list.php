@@ -31,12 +31,12 @@
             </tr>
             </thead>
             <tbody>
-            <? if (count($registrars) == 0) { ?>
+            <?php if (count($registrars) == 0) { ?>
                 <tr>
                     <td colspan="11"><?=$_->l('Результаты не найдены.')?></td>
                 </tr>
-            <? } ?>
-            <? foreach ($registrars as $registrar) { ?>
+            <?php } ?>
+            <?php foreach ($registrars as $registrar) { ?>
                 <tr>
                     <th scope="row"><?= $registrar->id ?></th>
                     <td><?= $registrar->name ?></td>
@@ -56,7 +56,7 @@
 
                     </td>
                 </tr>
-            <? } ?>
+            <?php } ?>
             </tbody>
         </table>
 

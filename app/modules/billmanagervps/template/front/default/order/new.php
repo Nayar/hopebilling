@@ -2,7 +2,7 @@
 <section id="plans">
     <div class="container">
         <div class="row">
-            <? $i=1; foreach ($plans as $plan) {  ?>
+            <?php $i=1; foreach ($plans as $plan) {  ?>
                 <?if($i === 1){?>
                     <div class="row">
                 <?}?>
@@ -32,7 +32,7 @@
                     </div>
                     <?$i=0;}?>
                 <!-- /item -->
-                <? $i++; } ?>
+                <?php $i++; } ?>
 
 
         </div>

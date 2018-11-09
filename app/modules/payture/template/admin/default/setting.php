@@ -24,12 +24,12 @@
         <div class="form-group">
             <label><?= $_->l('Использовать валюту для рассчетов') ?></label>
             <select class="form-control" name="currency">
-                <? foreach ($currencies as $currency) {
+                <?php foreach ($currencies as $currency) {
                     if ($currency->name == "RUB") {
                         ?>
                         <option <?= $pconfig->payture->currency == $currency->id ? 'selected="selected"' : '' ?>
                             value="<?= $currency->id ?>"><?= $currency->name ?></option>
-                    <? }
+                    <?php }
                 } ?>
             </select>
         </div>

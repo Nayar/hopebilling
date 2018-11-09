@@ -52,12 +52,12 @@
             </tr>
             </thead>
             <tbody>
-            <? if (count($categories) == 0) { ?>
+            <?php if (count($categories) == 0) { ?>
                 <tr>
                     <td colspan="11"><?=$_->l('Результаты не найдены.')?></td>
                 </tr>
-            <? } ?>
-            <? foreach ($categories as $category) { ?>
+            <?php } ?>
+            <?php foreach ($categories as $category) { ?>
                 <tr data-id="<?= $category->id ?>">
                     <th style="cursor: move"><span class="glyphicon glyphicon-move"></span></th>
                     <th scope="row"><?= $category->id ?></th>
@@ -75,7 +75,7 @@
                     </td>
 
                 </tr>
-            <? } ?>
+            <?php } ?>
             </tbody>
         </table>
     </div>

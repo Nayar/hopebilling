@@ -39,13 +39,13 @@
             <?if($field->type == 1){?>
                 <label><?=$field->name?></label>
                 <input type="text" name="<?=$field->id?>" data-validate="<?=$field->validate?>" class="form-control" >
-            <? } elseif($field->type == 2){ ?>
+            <?php } elseif($field->type == 2){ ?>
                 <label><?=$field->name?></label>
                 <input type="password" name="<?=$field->id?>" class="form-control" >
-            <? } elseif($field->type == 3){ ?>
+            <?php } elseif($field->type == 3){ ?>
                 <label><?=$field->name?></label>
                 <textarea data-validate="<?=$field->validate?>"  name="<?=$field->id?>" class="form-control"></textarea>
-            <? } elseif($field->type == 4 && $field->id){  ?>
+            <?php } elseif($field->type == 4 && $field->id){  ?>
 
                 <label><?=$field->name?></label>
                 <select id="select<?=$field->id?>" data-validate="<?=$field->validate?>" name="<?=$field->id?>" class="form-control select">
@@ -67,7 +67,7 @@
                     })
                 </script>
 
-            <? } elseif($field->type == 5 && $field->id){  ?>
+            <?php } elseif($field->type == 5 && $field->id){  ?>
                 <label><?=$field->name?></label>
                 <div>
                 <input id="range<?=$field->id?>" name="<?=$field->id?>" data-slider-id='ex1Slider' type="text" data-slider-min="<?=$field->slider->from?>" data-slider-max="<?=$field->slider->to?>" data-slider-step="<?=$field->slider->step?>" data-slider-value="<?=$field->slider->from?>"/>
@@ -90,7 +90,7 @@
                     var value<?=$field->id?> = slider<?=$field->id?>.getValue();
                     changed_price[<?=$field->id?>] = value<?=$field->id?>*price<?=$field->id?>;
                 </script>
-            <? } ?>
+            <?php } ?>
         </div>
     <?}?>
 

@@ -5,7 +5,7 @@
 
         })
     </script>
-    <? if (isset($ajax)) { ?>
+    <?php if (isset($ajax)) { ?>
 
     <!-- Modal -->
     <div class="modal fade " id="ajaxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="modal-body">
 
-                    <? } ?>
+                    <?php } ?>
                     <form action="<?= $_->link('admin/vps-ips/edit?ip_id=' . ($ip->id ? $ip->id : '')) ?>"
                           method="POST" class="<?= (isset($ajax) ? 'ajax-form' : '') ?> validate-form">
 
@@ -27,7 +27,7 @@
 
                         <div class="form-group">
                             <label class="control-label"><?=$_->l('Тип')?></label>
-                            <? if ($server->type == \model\VpsServer::PANEL_PROXMOX) { ?>
+                            <?php if ($server->type == \model\VpsServer::PANEL_PROXMOX) { ?>
                                 <div class="radio">
                                     <label>
                                         <input type="radio" name="type"
@@ -42,8 +42,8 @@
                                         <?= $_->l('Static IPv4') ?>
                                     </label>
                                 </div>
-                            <? } ?>
-                            <? if ($server->type == \model\VpsServer::PANEL_VMMANAGER) { ?>
+                            <?php } ?>
+                            <?php if ($server->type == \model\VpsServer::PANEL_VMMANAGER) { ?>
                                 <div class="radio">
                                     <label>
                                         <input type="radio" name="type"
@@ -65,7 +65,7 @@
                                         <?= $_->l('Public Static IPv4') ?>
                                     </label>
                                 </div>
-                            <? } ?>
+                            <?php } ?>
                         </div>
 
                         <script>
@@ -107,7 +107,7 @@
                             <input type="text" name="ip" value="<?= $ip->ip ?>" placeholder=""
                                    class="form-control" data-validate="custom" data-validate-match="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" data-validate-message-fail-custom="<?=$_->l('Ведите IP адрес (например 192.168.1.1)')?>">
                         </div>
-                        <? if ($server->type == \model\VpsServer::PANEL_PROXMOX) { ?>
+                        <?php if ($server->type == \model\VpsServer::PANEL_PROXMOX) { ?>
                         <div class="form-group mask-group">
                             <label for="host"><?=$_->l('Маска')?></label>
                             <input type="text" name="mask" value="<?= $ip->mask ?>" placeholder=""
@@ -119,7 +119,7 @@
                             <input type="text" name="gateway" value="<?= $ip->gateway ?>" placeholder=""
                                    class="form-control" data-validate="custom" data-validate-match="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" data-validate-message-fail-custom="<?=$_->l('Ведите IP адрес (например 192.168.1.1)')?>">
                         </div>
-                        <? } ?>
+                        <?php } ?>
 
                         <div class="form-group vlan-group">
                             <label for="username"><?=$_->l('VLAN Tag')?></label>
@@ -128,13 +128,13 @@
                         </div>
 
 
-                        <? if (!isset($ajax)) { ?>
+                        <?php if (!isset($ajax)) { ?>
                             <button type="submit" class="btn btn-success"><?=$_->l('Сохранить')?></button>
-                        <? } else { ?>
+                        <?php } else { ?>
                             <input type="hidden" name="ajax" value="1">
-                        <? } ?>
+                        <?php } ?>
                     </form>
-                    <? if (isset($ajax)) { ?>
+                    <?php if (isset($ajax)) { ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal"><?=$_->l('Закрыть')?></button>
@@ -143,5 +143,5 @@
             </div>
         </div>
     </div>
-<? } ?>
+<?php } ?>
 </div>

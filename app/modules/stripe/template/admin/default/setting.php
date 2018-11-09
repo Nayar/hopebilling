@@ -19,7 +19,7 @@
                                                                            data-placement="right" title=""
                                                                            data-original-title="<?= $_->l('Для корректной работы платежной системы Stripe в обязательном порядке у вас должна быть создана валюта USD.') ?>">см. примечание</span></label>
             <select class="form-control" name="currency">
-                <? foreach ($currencies as $currency) {
+                <?php foreach ($currencies as $currency) {
                     ?>
                     <option <?= $pconfig->stripe->currency == $currency->id ? 'selected="selected"' : '' ?>
                         value="<?= $currency->id ?>"><?= $currency->name ?></option>

@@ -65,14 +65,14 @@
     }
 </style>
 
-<? if (!$error) { ?>
+<?php if (!$error) { ?>
 
-    <? if (isset($bills)) { ?>
+    <?php if (isset($bills)) { ?>
         <h3><?= $_->l('Оплата счетов') ?> <span>№<?= implode(', ', $bills) ?></span></h3>
 
-    <? } else { ?>
+    <?php } else { ?>
         <h3><?= $_->l('Оплата счета') ?> <span>№<?= $bill->id ?></span></h3>
-    <? } ?>
+    <?php } ?>
     <?=$_->l('Общая сумма:')?> <b><?= $currency->displayPrice($bill->total) ?></b>
 
     <h4><?=$_->l('Выберите метод оплаты:')?></h4>
@@ -89,26 +89,26 @@
     <?=isset($displayPaymentMethods) ?   $displayPaymentMethods : ''?>
     <?/*End Include Modules*/?>
 
-    <? if ($bill->type != \model\Bill::TYPE_BALANCE) { ?>
+    <?php if ($bill->type != \model\Bill::TYPE_BALANCE) { ?>
         <a href="<?= $_->link('bill/pay/balance/' . $bill->id) ?>" class="payment_button payment_button2"
            style="background: url(<?= $_->path('img/logo.png') ?>) no-repeat center #333;"
            onclick="loader.display()"></a>
-    <? } ?>
+    <?php } ?>
 
-<? } elseif ($error == 'bill_is_paid') { ?>
+<?php } elseif ($error == 'bill_is_paid') { ?>
     <div class="alert alert-danger" role="alert">
-        <? if (isset($bills)) { ?>
+        <?php if (isset($bills)) { ?>
             <span class="glyphicon glyphicon-warning-sign"></span> <b><?= $_->l('Внимание!') ?></b>
             <br> <?= $_->l('Один или более выбранных счетов уже оплачены или отменены.') ?><br>
             <?= $_->l('Если у Вас возникли трудности при оплате счетов, обратитесь в службу поддержки клиентов.') ?>
 
-        <? } else { ?>
+        <?php } else { ?>
             <span class="glyphicon glyphicon-warning-sign"></span> <b><?= $_->l('Внимание!') ?></b>
             <br> <?= $_->l('Cчет №%id уже был оплачен или отменен.', array('id' => $bill->id)) ?>
             <br>
             <?= $_->l('Если у Вас возникли трудности при оплате счетов, обратитесь в службу поддержки клиентов.') ?>
 
-        <? } ?>
+        <?php } ?>
 
     </div>
-<? } ?>
+<?php } ?>

@@ -66,7 +66,7 @@
         <th><?= $_->l('Ваш заработок') ?></th>
         <th><?= $_->l('Доступно для снятия') ?></th>
     </tr>
-    <? $summ = 0;
+    <?php $summ = 0;
     $summ2 = 0;
     foreach ($referals as $referal) {
         ?>
@@ -79,7 +79,7 @@
                 $currency->displayPrice($referal->ref_rev * $config->refprogram_percent/100);
                 $summ2 += $referal->ref_rev * $config->refprogram_percent/100; ?> </td>
         </tr>
-    <? } ?>
+    <?php } ?>
 </table>
 <div class="ref_results">
     <div>

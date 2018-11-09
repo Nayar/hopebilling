@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-12">
-        <? if ($_->rget('error')) { ?>
+        <?php if ($_->rget('error')) { ?>
             <div class="alert alert-danger alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
@@ -10,7 +10,7 @@
                 <?=$_->l('Напишите в %link для оперативного решения проблемы.', array('link' => '<a class="alert-link" href="'. $_->link('support') .'">'.$_->l('службу поддержки').'</a>'))?>
                 Спасибо!
             </div>
-        <? } ?>
+        <?php } ?>
         <form method="post">
             <div class="page-header text-center">
                 <h1><?=$_->l('Подберите домен')?></h1>
@@ -34,7 +34,7 @@
     </div>
 </div>
 
-<? if (!$_->p()) { ?>
+<?php if (!$_->p()) { ?>
     <div class="row top10">
         <div class="col-md-12">
             <table class="table">
@@ -46,28 +46,28 @@
                 </tr>
                 </thead>
                 <tbody>
-                <? foreach ($domains as $domain) { ?>
+                <?php foreach ($domains as $domain) { ?>
                     <tr>
                         <td><?= $domain->name ?></td>
                         <td><?= $currency->displayPrice($domain->price) ?></td>
                         <td><?= $currency->displayPrice($domain->extension_price) ?></td>
                     </tr>
-                <? } ?>
+                <?php } ?>
                 </tbody>
             </table>
         </div>
     </div>
-<? } ?>
+<?php } ?>
 
 <div class="row top10">
     <div class="col-md-12">
-        <? if (($res['available'])) { ?>
+        <?php if (($res['available'])) { ?>
             <form id="sell-domains" method="post">
                 <div class="panel panel-success">
                     <div class="panel-heading"><?=$_->l('Домены доступные для заказа')?></div>
                     <div class="panel-body">
                         <table class="table">
-                            <? foreach ($res['available'] as $domain => $data) { ?>
+                            <?php foreach ($res['available'] as $domain => $data) { ?>
                                 <tr>
                                     <td width="5%">
                                         <input type="hidden" name="registrant_id[<?= $domain ?>]"
@@ -78,34 +78,34 @@
                                     <td><?= $domain ?></td>
                                     <td><?= $currency->displayPrice($data->price) ?></td>
                                 </tr>
-                            <? } ?>
+                            <?php } ?>
                         </table>
                     </div>
                 </div>
             </form>
-        <? } ?>
-        <? if ($res['no_available']) { ?>
+        <?php } ?>
+        <?php if ($res['no_available']) { ?>
             <div class="panel panel-danger">
                 <div class="panel-heading"><?=$_->l('Домены не доступные для заказа')?></div>
                 <div class="panel-body">
                     <table class="table">
-                        <? foreach ($res['no_available'] as $domain => $data) { ?>
+                        <?php foreach ($res['no_available'] as $domain => $data) { ?>
                             <tr>
                                 <td width="5%"><input type="checkbox" disabled="disabled"></td>
                                 <td><?= $domain ?></td>
 
                             </tr>
-                        <? } ?>
+                        <?php } ?>
                     </table>
                 </div>
             </div>
-        <? } ?>
-        <? if (($res['booked'])) { ?>
+        <?php } ?>
+        <?php if (($res['booked'])) { ?>
             <div class="panel panel-danger">
                 <div class="panel-heading"><?=$_->l('Домены уже кем-то занятые')?></div>
                 <div class="panel-body">
                     <table class="table">
-                        <? foreach ($res['booked'] as $domain => $data) { ?>
+                        <?php foreach ($res['booked'] as $domain => $data) { ?>
                             <tr>
                                 <td width="5%"><input type="checkbox" disabled="disabled"></td>
                                 <td><?= $domain ?> <a style="font-size: 9px;font-style: oblique;"
@@ -113,17 +113,17 @@
                                                       target="_blank">WHOIS</a></td>
 
                             </tr>
-                        <? } ?>
+                        <?php } ?>
                     </table>
                 </div>
             </div>
-        <? } ?>
-        <? if (($res['orders'])) { ?>
+        <?php } ?>
+        <?php if (($res['orders'])) { ?>
             <div class="panel panel-danger">
                 <div class="panel-heading"><?=$_->l('Домены уже кем-то заказаны, но еще не оплачены')?></div>
                 <div class="panel-body">
                     <table class="table">
-                        <? foreach ($res['orders'] as $domain => $data) { ?>
+                        <?php foreach ($res['orders'] as $domain => $data) { ?>
                             <tr>
                                 <td width="5%"><input type="checkbox" disabled="disabled"></td>
                                 <td><?= $domain ?> <a style="font-size: 9px;font-style: oblique;"
@@ -131,14 +131,14 @@
                                                       target="_blank">WHOIS</a></td>
 
                             </tr>
-                        <? } ?>
+                        <?php } ?>
                     </table>
                 </div>
             </div>
-        <? } ?>
+        <?php } ?>
     </div>
 </div>
-<? if (($res['available'])) { ?>
+<?php if (($res['available'])) { ?>
     <div class="row">
         <div class="col-md-12">
             <button class="btn btn-primary pull-right" onclick="$('#sell-domains').submit();">
@@ -147,4 +147,4 @@
 
         </div>
     </div>
-<? } ?>
+<?php } ?>

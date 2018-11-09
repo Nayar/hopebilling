@@ -7,30 +7,30 @@
     })
 </script>
 
-<? if (!empty($errors)) { ?>
+<?php if (!empty($errors)) { ?>
 
     <?
     foreach ($errors as $error) {
         ?>
-        <? if ($error == 'no_connection') { ?>
+        <?php if ($error == 'no_connection') { ?>
             <div class="alert alert-danger" role="alert"> <?=$_->l('Нет соединения с сервером.')?></div>
-        <? } else if ($error == 'system_error') { ?>
+        <?php } else if ($error == 'system_error') { ?>
             <div class="alert alert-danger" role="alert"> <?=$_->l('Системная ошибка!')?></div>
-        <? } else if ($error == 'user_isset') { ?>
+        <?php } else if ($error == 'user_isset') { ?>
             <div class="alert alert-danger" role="alert"> <?=$_->l('Пользователь с таким логином существует')?></div>
-        <? } else if ($error == 'field_user_no_valid') { ?>
+        <?php } else if ($error == 'field_user_no_valid') { ?>
             <div class="alert alert-danger" role="alert"> <?=$_->l('Пользователь не выбран')?></div>
-        <? } else if ($error == 'field_server_no_valid') { ?>
+        <?php } else if ($error == 'field_server_no_valid') { ?>
             <div class="alert alert-danger" role="alert"> <?=$_->l('Сервер не выбран')?></div>
-        <? } else if ($error == 'field_plan_no_valid') { ?>
+        <?php } else if ($error == 'field_plan_no_valid') { ?>
             <div class="alert alert-danger" role="alert"> <?=$_->l('Тарифный план не выбран')?></div>
-        <? } else if ($error == 'pass_not_valid') { ?>
+        <?php } else if ($error == 'pass_not_valid') { ?>
             <div class="alert alert-danger" role="alert"> <?=$_->l('Пароль слишком легкий! Придумайте другой!')?></div>
-        <? } ?>
-    <? } ?>
+        <?php } ?>
+    <?php } ?>
 
 
-<? } ?>
+<?php } ?>
 <form method="post">
     <div class="form-group" disabled="disabled">
         <label for="login"><?=$_->l('Логин')?></label>
@@ -39,14 +39,14 @@
                name="login" <?= ($order->id ? 'disabled' : '') ?>
                value="<?= $order->login ?>">
     </div>
-    <? if (!$order->id) { ?>
+    <?php if (!$order->id) { ?>
         <div class="form-group">
             <label for="pass"><?=$_->l('Пароль')?></label>
             <input type="password" class="form-control" data-validate="pass"
                    name="pass"
                    value="">
         </div>
-    <? } ?>
+    <?php } ?>
     <div class="form-group">
         <label for="exampleInputPassword1"><?=$_->l('Тариф')?></label>
         <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right"
@@ -54,22 +54,22 @@
 
         <select name="plan_id" class="form-control" data-validate="required">
             <option value=""> ---</option>
-            <? foreach ($plans as $plan) { ?>
+            <?php foreach ($plans as $plan) { ?>
                 <option
                     value="<?= $plan->id ?>" <?= (($order->plan_id == $plan->id) || (\System\Tools::rPOST('plan_id') == $plan->id) ? 'selected' : '') ?> ><?= $plan->name ?></option>
-            <? } ?>
+            <?php } ?>
         </select>
     </div>
 
-    <? if (!$order->id) { ?>
+    <?php if (!$order->id) { ?>
         <div class="form-group">
             <label for="server_id"><?=$_->l('Сервер')?></label>
             <select name="server_id" data-validate="required" class="form-control">
                 <option value=""> ---</option>
 
-                <? foreach ($servers as $server) { ?>
+                <?php foreach ($servers as $server) { ?>
                     <option value="<?= $server->id ?>" data-panel="<?=$server->panel?>"> <?= $server->name ?> </option>
-                <? } ?>
+                <?php } ?>
             </select>
         </div>
         <script>
@@ -134,7 +134,7 @@
             <input type="text" name="domain" data-validate="domain" class="form-control" value="<?= $_->p('domain') ?>">
         </div>
 
-    <? } else { ?>
+    <?php } else { ?>
         <div class="form-group">
             <label for="exampleInputPassword1"><?=$_->l('Сервер')?></label>
             <input type="hidden" name="server_id" value="<?= $server->id ?>">
@@ -143,7 +143,7 @@
             </select>
         </div>
 
-    <? } ?>
+    <?php } ?>
     <?= $_->js('select2/select2.min.js') ?>
     <?= $_->js('select2/i18n/ru.js') ?>
     <?= $_->css('select2/select2.min.css') ?>
@@ -151,10 +151,10 @@
         <label for="exampleInputEmail1"><?=$_->l('Клиент')?></label>
         <select name="user_id" data-validate="required" class="form-control">
             <option value=""> --- </option>
-            <? foreach ($clients as $client) { ?>
+            <?php foreach ($clients as $client) { ?>
                 <option
                     value="<?= $client->id ?>" <?= (($order->client_id == $client->id) || \System\Tools::rPOST('user_id') == $client->id ? 'selected' : '') ?> ><?= $client->name ?></option>
-            <? } ?>
+            <?php } ?>
         </select>
         <script type="text/javascript">
             function formatRepo(repo) {
@@ -213,7 +213,7 @@
             });
         </script>
     </div>
-    <? if (!$order->id) { ?>
+    <?php if (!$order->id) { ?>
     <div class="checkbox">
         <label>
             <input name="import_flag" value="1" type="checkbox" > <?=$_->l('Пользователь уже существует в панели управления сервером')?>

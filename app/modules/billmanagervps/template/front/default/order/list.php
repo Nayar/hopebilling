@@ -25,10 +25,10 @@
                 <div>
                     <select class="filter" name="plan_id">
                         <option value=""> --- </option>
-                        <? foreach ($plans as $plan) { ?>
+                        <?php foreach ($plans as $plan) { ?>
                             <option <?= (isset($filter['plan_id']) && $filter['plan_id'] == $plan->id ? 'selected="selected"' : '') ?>
                                 value="<?= $plan->id ?>"><?= $plan->name ?></option>
-                        <? } ?>
+                        <?php } ?>
                     </select>
 
                 </div>
@@ -43,12 +43,12 @@
         </tr>
         </thead>
         <tbody>
-        <? if (count($orders) == 0) { ?>
+        <?php if (count($orders) == 0) { ?>
             <tr class="text-center">
                 <td colspan="11"><?= $_->l('Результаты не найдены.') ?></td>
             </tr>
-        <? } ?>
-        <? foreach ($orders as $order) { ?>
+        <?php } ?>
+        <?php foreach ($orders as $order) { ?>
             <?
             $datetime1 = new DateTime();
             $datetime2 = new DateTime($order->paid_to);
@@ -73,11 +73,11 @@
 
 
                 <td>
-                    <? if ( $order->active ) { ?>
+                    <?php if ( $order->active ) { ?>
                         <span class="label label-success"><?= $_->l('Активный') ?></span>
-                    <? } else { ?>
+                    <?php } else { ?>
                         <span class="label label-danger"><?= $_->l('Отключен') ?></span>
-                    <? } ?>
+                    <?php } ?>
                 </td>
 
 
@@ -105,7 +105,7 @@
                     </div>
                 </td>
             </tr>
-        <? } ?>
+        <?php } ?>
         </tbody>
     </table>
     <?= $pagination ?>

@@ -3,7 +3,7 @@
 
 <?= $_->JS('momentjs/moment.min.js') ?>
 
-    <? if ($lang->iso_code != 'en') { ?>
+    <?php if ($lang->iso_code != 'en') { ?>
         <?= $_->JS('momentjs/locale/' . $lang->iso_code . '.js') ?>
 <?}?>
 
@@ -81,9 +81,9 @@
 
 
 
-<? if ($order) { ?>
+<?php if ($order) { ?>
     <h3> <?=$_->l('Счета по заказу №%id', array('id' => $order->id))?> </h3>
-<? } ?>
+<?php } ?>
 
 <div>
     <table class="table table-bordered">
@@ -147,10 +147,10 @@
                             </option>
                         <?}?>
 
-                        <? foreach ($service_categories as $category) {?>
+                        <?php foreach ($service_categories as $category) {?>
                             <option <?= (isset($filter['type']) && $filter['type'] == 's'.$category->id.'') ? 'selected="selected"' : '' ?> value="s<?=$category->id?>"><?=$category->name?> </option>
                         <?}?>
-                        <? foreach ($services as $key=>$service) {?>
+                        <?php foreach ($services as $key=>$service) {?>
                             <option <?= (isset($filter['type']) && $filter['type'] == $key) ? 'selected="selected"' : '' ?> value="<?=$key?>"><?=$service?> </option>
                         <?}?>
                     </select>
@@ -189,96 +189,96 @@
         </tr>
         </thead>
         <tbody>
-        <? if (count($bills) == 0) { ?>
+        <?php if (count($bills) == 0) { ?>
             <tr class="text-center">
                 <td colspan="11"><?= $_->l('Результаты не найдены.') ?></td>
             </tr>
-        <? } ?>
+        <?php } ?>
 
-        <? foreach ($bills as $bill) { ?>
+        <?php foreach ($bills as $bill) { ?>
             <tr>
                 <td>
-                    <? if ($bill->is_paid == 0) { ?>
+                    <?php if ($bill->is_paid == 0) { ?>
                         <input type="checkbox" class="table-checkbox" data-id="<?= $bill->id ?>">
-                    <? } else { ?>
+                    <?php } else { ?>
                         <input type="checkbox" disabled="disabled">
-                    <? } ?>
+                    <?php } ?>
                 </td>
 
                 <td scope="row"><?= $bill->id ?></td>
                 <td><?= date('d-m-Y', strtotime($bill->date)) ?></td>
                 <td>
-                    <? if ($bill->type == \model\Bill::TYPE_BALANCE) { ?>
+                    <?php if ($bill->type == \model\Bill::TYPE_BALANCE) { ?>
                         <?=$_->l('Пополнение баланса')?>
-                    <? } elseif ($bill->type == \model\Bill::TYPE_CHANGE_PLAN) { ?>
+                    <?php } elseif ($bill->type == \model\Bill::TYPE_CHANGE_PLAN) { ?>
                         <?=$_->l('Смена хостинг тарифа')?>
-                    <? } elseif ($bill->type == \model\Bill::TYPE_ORDER) { ?>
+                    <?php } elseif ($bill->type == \model\Bill::TYPE_ORDER) { ?>
                         <?=$_->l('Хостинг')?>
-                    <? } elseif ($bill->type == \model\Bill::TYPE_DOMAIN_ORDER) { ?>
+                    <?php } elseif ($bill->type == \model\Bill::TYPE_DOMAIN_ORDER) { ?>
                         <?=$_->l('Домен')?>
-                    <? } elseif ($bill->type == \model\Bill::TYPE_DOMAIN_PROLONG) { ?>
+                    <?php } elseif ($bill->type == \model\Bill::TYPE_DOMAIN_PROLONG) { ?>
                         <?=$_->l('Продление домена')?>
-                    <? } elseif ($bill->type == \model\Bill::TYPE_SERVICE_ORDER) { ?>
+                    <?php } elseif ($bill->type == \model\Bill::TYPE_SERVICE_ORDER) { ?>
                         <?=$bill->category?>
-                    <? } elseif ($bill->type == \model\Bill::TYPE_VPS) { ?>
+                    <?php } elseif ($bill->type == \model\Bill::TYPE_VPS) { ?>
                         <?=$_->l('VPS')?>
-                    <? } else { ?>
+                    <?php } else { ?>
                         <?=isset($services['module_'.$bill->type]) ? $services['module_'.$bill->type] : '---'?>
-                    <? } ?>
+                    <?php } ?>
                 </td>
 
                 <td>
-                <? if ($bill->type == \model\Bill::TYPE_CHANGE_PLAN) { ?>
+                <?php if ($bill->type == \model\Bill::TYPE_CHANGE_PLAN) { ?>
                     (<?= $bill->old_plan . ' ==>> ' . $bill->new_plan ?>)
-                <? } else if ($bill->type == \model\Bill::TYPE_ORDER) { ?>
+                <?php } else if ($bill->type == \model\Bill::TYPE_ORDER) { ?>
                     <?= $bill->hosting_plan ?>
-                <? } else if ($bill->type == \model\Bill::TYPE_DOMAIN_ORDER) { ?>
+                <?php } else if ($bill->type == \model\Bill::TYPE_DOMAIN_ORDER) { ?>
                     <?= $bill->domain_zone ?>
-                <? } else if ($bill->type == \model\Bill::TYPE_DOMAIN_PROLONG) { ?>
+                <?php } else if ($bill->type == \model\Bill::TYPE_DOMAIN_PROLONG) { ?>
                     <?= $bill->domain_zone ?>
-                <? } else if ($bill->type == \model\Bill::TYPE_SERVICE_ORDER) { ?>
+                <?php } else if ($bill->type == \model\Bill::TYPE_SERVICE_ORDER) { ?>
                     <?= $bill->service ?>
-                <? } else if ($bill->type == \model\Bill::TYPE_VPS) { ?>
+                <?php } else if ($bill->type == \model\Bill::TYPE_VPS) { ?>
                     <?= $bill->vps_plan ?>
-                <? } else if (isset($bill->plan)) { ?>
+                <?php } else if (isset($bill->plan)) { ?>
                     <?= $bill->plan ?>
-                <? } else { ?>
+                <?php } else { ?>
                     ---
-                <? } ?>
+                <?php } ?>
                 </td>
                 <td>
-                <? if ($bill->type == \model\Bill::TYPE_CHANGE_PLAN) { ?>
+                <?php if ($bill->type == \model\Bill::TYPE_CHANGE_PLAN) { ?>
                     <?= $bill->login ?>
-                <? } else if ($bill->type == \model\Bill::TYPE_ORDER) { ?>
+                <?php } else if ($bill->type == \model\Bill::TYPE_ORDER) { ?>
                     <?= $bill->login ?>
-                <? } elseif ($bill->type == \model\Bill::TYPE_DOMAIN_ORDER) { ?>
+                <?php } elseif ($bill->type == \model\Bill::TYPE_DOMAIN_ORDER) { ?>
                     <?= $bill->domain ?>
-                <? } elseif ($bill->type == \model\Bill::TYPE_DOMAIN_PROLONG) { ?>
+                <?php } elseif ($bill->type == \model\Bill::TYPE_DOMAIN_PROLONG) { ?>
                     <?= $bill->domain ?>
-                <? } elseif ($bill->type == \model\Bill::TYPE_VPS) { ?>
+                <?php } elseif ($bill->type == \model\Bill::TYPE_VPS) { ?>
                     <?= $bill->vps_username ?>
-                <? } else { ?>
+                <?php } else { ?>
                     ---
                 </td>
-                <? } ?>
+                <?php } ?>
                 </td>
 
                 <td><?= $currency->displayPrice($bill->price) ?> </td>
                 <td><?= $currency->displayPrice($bill->total) ?> </td>
                 <td><?= date('d-m-Y', strtotime($bill->date) + (86400 * 2)) ?></td>
                 <td class="text-center">
-                    <? if ($bill->is_paid == 1) { ?>
+                    <?php if ($bill->is_paid == 1) { ?>
                         <span class="label label-success"><?= $_->l('Оплачен') ?></span>
-                    <? } elseif ($bill->is_paid == -1) { ?>
+                    <?php } elseif ($bill->is_paid == -1) { ?>
                         <span class="label label-danger"><?= $_->l('Отменен') ?></span>
-                    <? } elseif ($bill->is_paid == -2) { ?>
+                    <?php } elseif ($bill->is_paid == -2) { ?>
                         <span class="label label-info"><?= $_->l('Возврат') ?></span>
-                    <? } else { ?>
+                    <?php } else { ?>
                         <span class="label label-warning"><?= $_->l('Ожидает оплату') ?></span>
-                    <? } ?>
+                    <?php } ?>
                 </td>
 
-                <td class="text-center"><? if (!$bill->is_paid) { ?>
+                <td class="text-center"><?php if (!$bill->is_paid) { ?>
                         <div class="btn-group-vertical" role="group" aria-label="...">
                         <a href="<?= $_->link('bill/' . $bill->id) ?>"
                            class="btn btn-primary btn-xs"><span
@@ -287,9 +287,9 @@
                                class="btn btn-danger btn-xs ajax-action"><span
                                     class="glyphicon glyphicon-remove"></span> <?= $_->l('Отменить') ?></a>
                         </div>
-                    <? } ?></td>
+                    <?php } ?></td>
             </tr>
-        <? } ?>
+        <?php } ?>
         </tbody>
     </table>
     <div class="row">

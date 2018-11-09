@@ -16,7 +16,7 @@
         })
     </script>
 
-    <? if (isset($ajax)) { ?>
+    <?php if (isset($ajax)) { ?>
 
     <!-- Modal -->
     <div class="modal fade " id="ajaxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -28,7 +28,7 @@
                     <h4 class="modal-title" id="myModalLabel"><?=$_->l('Промокод')?></h4>
                 </div>
                 <div class="modal-body">
-                    <? } ?>
+                    <?php } ?>
 
                     <form action="<?=$_->link("/admin/promocodes/edit?promocode_id=" . $promocode->id  )?>"
                           method="POST" class="<?= (isset($ajax) ? 'ajax-form' : '') ?> validate-form">
@@ -140,14 +140,14 @@
                             <?}?>
                             </div>
                         <?}?>
-                        <? if (!isset($ajax)) { ?>
+                        <?php if (!isset($ajax)) { ?>
                             <button type="submit" class="btn btn-success"><?=$_->l('Сохранить')?></button>
-                        <? } else { ?>
+                        <?php } else { ?>
                             <input type="hidden" name="ajax" value="1">
-                        <? } ?>
+                        <?php } ?>
                     </form>
 
-                    <? if (isset($ajax)) { ?>
+                    <?php if (isset($ajax)) { ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal"><?=$_->l('Закрыть')?></button>
@@ -156,7 +156,7 @@
             </div>
         </div>
     </div>
-<? } ?>
+<?php } ?>
     <script>
         console.log($('div.form-group:first-child').find('input, select, textarea').is(':visible'));
     </script>

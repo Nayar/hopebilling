@@ -9,13 +9,13 @@ use \model\Currency;
         <div class="form-group">
             <label for="disabledTextInput"><?=$_->l('Основная валюта')?></label>
             <select class="form-control" name="currency_default">
-                <? foreach ($currencies as $currency) { ?>
+                <?php foreach ($currencies as $currency) { ?>
                     <option <?= ($config->currency_default == $currency->id ? 'selected="selected"' : '') ?>
                         data-iso="<?= $currency->iso ?>" value="<?= $currency->id ?>"><?= $currency->name ?></option>
-                    <? if ($config->currency_default == $currency->id) {
+                    <?php if ($config->currency_default == $currency->id) {
                         $default = $currency->iso;
                     } ?>
-                <? } ?>
+                <?php } ?>
             </select>
         </div>
 

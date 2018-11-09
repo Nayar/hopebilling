@@ -1,4 +1,4 @@
-<? if (!$hide) { ?>
+<?php if (!$hide) { ?>
     <nav class="text-center">
         <ul class="pagination">
 
@@ -9,7 +9,7 @@
                 </a>
             </li>
             <?$show = 3;?>
-            <? for ($i = 1; $i < $pages + 1; $i++) { ?>
+            <?php for ($i = 1; $i < $pages + 1; $i++) { ?>
                 <?if( abs($current - $i) > $show){?>
                     <?continue;?>
                 <?}?>
@@ -20,7 +20,7 @@
                     </a>
                 </li>
 
-            <? } ?>
+            <?php } ?>
             <li <?= (($current) > $pages ? 'class="disabled"' : '') ?>>
                 <a href="#"
                    aria-label="Next" class="change-page"
@@ -30,4 +30,4 @@
             </li>
         </ul>
     </nav>
-<? } ?>
+<?php } ?>

@@ -10,13 +10,13 @@
         <label><?= $_->l('Тарифный план') ?></label>
         <select name="id_plan" class="form-control">
             <option> ---</option>
-            <? foreach ($plans as $plan) { ?>
-                <? if ($plan->id != $current_plan->id) { ?>
+            <?php foreach ($plans as $plan) { ?>
+                <?php if ($plan->id != $current_plan->id) { ?>
                     <option value="<?= $plan->id ?>"><?= $plan->name ?>
                         - <?= $_->l('месячная
                         доплата') ?> <?= (($currency->getPrice($plan->price-$current_plan->price)) > 0 ? ($currency->displayPrice($plan->price-$current_plan->price)) : '0') ?> </option>
-                <? } ?>
-            <? } ?>
+                <?php } ?>
+            <?php } ?>
 
         </select>
     </div>
